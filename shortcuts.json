@@ -78,6 +78,16 @@
           "action": "Apply transforms",
           "shortcut": "Ctrl+A",
           "info": ""
+        },
+        {
+          "action": "Bevel Edge",
+          "shortcut": "Ctrl+B",
+          "info": "Only works in Edit mode. Use mousewheel to increase/decrease segments."
+        },
+        {
+          "action": "Extrude plane",
+          "shortcut": "E",
+          "info": "Edit mode, select face."
         }
       ],
       "notes": []
@@ -298,4 +308,3 @@
     }
   ]
 }
-
