@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blender Shortcuts Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #38a169;
+        }
+
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #e53e3e;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .shortcut-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .shortcut-action {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .shortcut-key {
+            color: #667eea;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            background: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .notes {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .notes ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .notes li {
+            padding: 5px 0;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            color: #667eea;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 32px;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .json-editor {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            min-height: 400px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #718096;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Blender Shortcuts Reference</h1>
+            <p>Your quick reference guide to Blender keyboard shortcuts</p>
+        </header>
+
+        <div class="controls">
+            <input type="text" id="searchInput" class="search-box" placeholder="Search shortcuts...">
+            <button class="btn btn-primary" onclick="openAddModal()">+ Add Shortcut</button>
+            <button class="btn btn-secondary" onclick="openJsonEditor()">Edit JSON</button>
+            <button class="btn btn-secondary" onclick="downloadJson()">Download JSON</button>
+        </div>
+
+        <div id="categoriesContainer" class="categories-grid"></div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Shortcut</h2>
+                <button class="close" onclick="closeAddModal()">&times;</button>
+            </div>
+            <form id="shortcutForm">
+                <div class="form-group">
+                    <label for="categorySelect">Category:</label>
+                    <select id="categorySelect" required>
+                        <option value="">Select or create category...</option>
+                    </select>
+                    <input type="text" id="newCategoryInput" placeholder="Or enter new category name" style="margin-top: 10px; display: none;">
+                </div>
+                <div class="form-group">
+                    <label for="actionInput">Action:</label>
+                    <input type="text" id="actionInput" required placeholder="e.g., Select all">
+                </div>
+                <div class="form-group">
+                    <label for="shortcutInput">Shortcut:</label>
+                    <input type="text" id="shortcutInput" required placeholder="e.g., A">
+                </div>
+                <div class="form-group">
+                    <label for="infoInput">Additional Info (optional):</label>
+                    <textarea id="infoInput" placeholder="Any additional notes or context..."></textarea>
+                </div>
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" onclick="closeAddModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JSON Editor Modal -->
+    <div id="jsonModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit JSON</h2>
+                <button class="close" onclick="closeJsonEditor()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="jsonEditor">JSON Content:</label>
+                <textarea id="jsonEditor" class="json-editor"></textarea>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="saveJson()">Save JSON</button>
+                <button class="btn btn-danger" onclick="closeJsonEditor()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let shortcutsData = {};
+
+        // Load JSON data
+        async function loadData() {
+            try {
+                const response = await fetch('shortcuts.json');
+                shortcutsData = await response.json();
+                renderCategories();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                alert('Error loading shortcuts.json. Make sure the file exists.');
+            }
+        }
+
+        // Render categories
+        function renderCategories(filter = '') {
+            const container = document.getElementById('categoriesContainer');
+            const filterLower = filter.toLowerCase();
+
+            if (!shortcutsData.categories || shortcutsData.categories.length === 0) {
+                container.innerHTML = '<div class="empty-state">No shortcuts found. Add some shortcuts to get started!</div>';
+                return;
+            }
+
+            container.innerHTML = '';
+
+            shortcutsData.categories.forEach(category => {
+                // Filter shortcuts
+                const filteredShortcuts = category.shortcuts.filter(shortcut => {
+                    return shortcut.action.toLowerCase().includes(filterLower) ||
+                           shortcut.shortcut.toLowerCase().includes(filterLower) ||
+                           (shortcut.info && shortcut.info.toLowerCase().includes(filterLower));
+                });
+
+                // Filter notes
+                const filteredNotes = category.notes.filter(note => 
+                    note.toLowerCase().includes(filterLower)
+                );
+
+                // Skip category if no matches
+                if (filteredShortcuts.length === 0 && filteredNotes.length === 0 && filter) {
+                    return;
+                }
+
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+
+                let html = `<div class="category-title">${category.name}</div>`;
+
+                // Render shortcuts
+                if (filteredShortcuts.length > 0) {
+                    filteredShortcuts.forEach(shortcut => {
+                        html += `
+                            <div class="shortcut-item">
+                                <div class="shortcut-action">${escapeHtml(shortcut.action)}</div>
+                                <div class="shortcut-key">${escapeHtml(shortcut.shortcut)}</div>
+                                ${shortcut.info ? `<div style="margin-top: 8px; color: #718096; font-size: 0.9em;">${escapeHtml(shortcut.info)}</div>` : ''}
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary btn-small" onclick="editShortcut('${category.name}', ${category.shortcuts.indexOf(shortcut)})">Edit</button>
+                                    <button class="btn btn-danger btn-small" onclick="deleteShortcut('${category.name}', ${category.shortcuts.indexOf(shortcut)})">Delete</button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+
+                // Render notes
+                if (filteredNotes.length > 0 && category.notes.length > 0) {
+                    html += '<div class="notes"><ul>';
+                    filteredNotes.forEach(note => {
+                        html += `<li>${escapeHtml(note)}</li>`;
+                    });
+                    html += '</ul></div>';
+                }
+
+                categoryCard.innerHTML = html;
+                container.appendChild(categoryCard);
+            });
+
+            if (container.innerHTML === '') {
+                container.innerHTML = '<div class="empty-state">No shortcuts match your search.</div>';
+            }
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            renderCategories(e.target.value);
+        });
+
+        // Modal functions
+        function openAddModal() {
+            populateCategorySelect();
+            document.getElementById('modalTitle').textContent = 'Add New Shortcut';
+            document.getElementById('shortcutForm').reset();
+            document.getElementById('addModal').style.display = 'block';
+        }
+
+        function closeAddModal() {
+            document.getElementById('addModal').style.display = 'none';
+            document.getElementById('newCategoryInput').style.display = 'none';
+        }
+
+        function openJsonEditor() {
+            document.getElementById('jsonEditor').value = JSON.stringify(shortcutsData, null, 2);
+            document.getElementById('jsonModal').style.display = 'block';
+        }
+
+        function closeJsonEditor() {
+            document.getElementById('jsonModal').style.display = 'none';
+        }
+
+        function populateCategorySelect() {
+            const select = document.getElementById('categorySelect');
+            select.innerHTML = '<option value="">Select or create category...</option>';
+            
+            if (shortcutsData.categories) {
+                shortcutsData.categories.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category.name;
+                    option.textContent = category.name;
+                    select.appendChild(option);
+                });
+            }
+
+            select.addEventListener('change', (e) => {
+                if (e.target.value === '') {
+                    document.getElementById('newCategoryInput').style.display = 'block';
+                } else {
+                    document.getElementById('newCategoryInput').style.display = 'none';
+                }
+            });
+        }
+
+        // Form submission
+        document.getElementById('shortcutForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const categoryName = document.getElementById('categorySelect').value || 
+                                document.getElementById('newCategoryInput').value;
+            const action = document.getElementById('actionInput').value;
+            const shortcut = document.getElementById('shortcutInput').value;
+            const info = document.getElementById('infoInput').value;
+
+            if (!categoryName) {
+                alert('Please select or enter a category name');
+                return;
+            }
+
+            // Find or create category
+            let category = shortcutsData.categories.find(c => c.name === categoryName);
+            if (!category) {
+                category = { name: categoryName, shortcuts: [], notes: [] };
+                shortcutsData.categories.push(category);
+            }
+
+            // Add shortcut
+            category.shortcuts.push({
+                action: action,
+                shortcut: shortcut,
+                info: info
+            });
+
+            saveData();
+            renderCategories(document.getElementById('searchInput').value);
+            closeAddModal();
+        });
+
+        // Edit shortcut
+        function editShortcut(categoryName, index) {
+            const category = shortcutsData.categories.find(c => c.name === categoryName);
+            if (!category || !category.shortcuts[index]) return;
+
+            const shortcut = category.shortcuts[index];
+            
+            populateCategorySelect();
+            document.getElementById('categorySelect').value = categoryName;
+            document.getElementById('actionInput').value = shortcut.action;
+            document.getElementById('shortcutInput').value = shortcut.shortcut;
+            document.getElementById('infoInput').value = shortcut.info || '';
+            document.getElementById('modalTitle').textContent = 'Edit Shortcut';
+
+            // Store edit context
+            document.getElementById('shortcutForm').dataset.editCategory = categoryName;
+            document.getElementById('shortcutForm').dataset.editIndex = index;
+
+            document.getElementById('addModal').style.display = 'block';
+        }
+
+        // Delete shortcut
+        function deleteShortcut(categoryName, index) {
+            if (!confirm('Are you sure you want to delete this shortcut?')) return;
+
+            const category = shortcutsData.categories.find(c => c.name === categoryName);
+            if (category && category.shortcuts[index]) {
+                category.shortcuts.splice(index, 1);
+                
+                // Remove category if empty
+                if (category.shortcuts.length === 0 && category.notes.length === 0) {
+                    shortcutsData.categories = shortcutsData.categories.filter(c => c.name !== categoryName);
+                }
+
+                saveData();
+                renderCategories(document.getElementById('searchInput').value);
+            }
+        }
+
+        // Save JSON
+        function saveJson() {
+            try {
+                const jsonText = document.getElementById('jsonEditor').value;
+                shortcutsData = JSON.parse(jsonText);
+                saveData();
+                renderCategories(document.getElementById('searchInput').value);
+                closeJsonEditor();
+                alert('JSON saved successfully!');
+            } catch (error) {
+                alert('Invalid JSON: ' + error.message);
+            }
+        }
+
+        // Save data to localStorage (as fallback)
+        function saveData() {
+            localStorage.setItem('blenderShortcuts', JSON.stringify(shortcutsData));
+        }
+
+        // Download JSON
+        function downloadJson() {
+            const dataStr = JSON.stringify(shortcutsData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'shortcuts.json';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Load from localStorage on startup (if available)
+        function loadFromStorage() {
+            const stored = localStorage.getItem('blenderShortcuts');
+            if (stored) {
+                try {
+                    shortcutsData = JSON.parse(stored);
+                    renderCategories();
+                } catch (e) {
+                    console.error('Error loading from storage:', e);
+                }
+            }
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const addModal = document.getElementById('addModal');
+            const jsonModal = document.getElementById('jsonModal');
+            if (event.target === addModal) {
+                closeAddModal();
+            }
+            if (event.target === jsonModal) {
+                closeJsonEditor();
+            }
+        }
+
+        // Update form handler to support editing
+        const form = document.getElementById('shortcutForm');
+        const originalHandler = form.onsubmit;
+        form.onsubmit = null;
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const editCategory = form.dataset.editCategory;
+            const editIndex = form.dataset.editIndex;
+
+            if (editCategory !== undefined && editIndex !== undefined) {
+                // Editing existing shortcut
+                const category = shortcutsData.categories.find(c => c.name === editCategory);
+                if (category && category.shortcuts[editIndex]) {
+                    const categoryName = document.getElementById('categorySelect').value || 
+                                        document.getElementById('newCategoryInput').value;
+                    const action = document.getElementById('actionInput').value;
+                    const shortcut = document.getElementById('shortcutInput').value;
+                    const info = document.getElementById('infoInput').value;
+
+                    // If category changed, move shortcut
+                    if (categoryName !== editCategory) {
+                        category.shortcuts.splice(editIndex, 1);
+                        let newCategory = shortcutsData.categories.find(c => c.name === categoryName);
+                        if (!newCategory) {
+                            newCategory = { name: categoryName, shortcuts: [], notes: [] };
+                            shortcutsData.categories.push(newCategory);
+                        }
+                        newCategory.shortcuts.push({ action, shortcut, info });
+                    } else {
+                        category.shortcuts[editIndex] = { action, shortcut, info };
+                    }
+                }
+                delete form.dataset.editCategory;
+                delete form.dataset.editIndex;
+            } else {
+                // Adding new shortcut (existing handler)
+                const categoryName = document.getElementById('categorySelect').value || 
+                                    document.getElementById('newCategoryInput').value;
+                const action = document.getElementById('actionInput').value;
+                const shortcut = document.getElementById('shortcutInput').value;
+                const info = document.getElementById('infoInput').value;
+
+                if (!categoryName) {
+                    alert('Please select or enter a category name');
+                    return;
+                }
+
+                let category = shortcutsData.categories.find(c => c.name === categoryName);
+                if (!category) {
+                    category = { name: categoryName, shortcuts: [], notes: [] };
+                    shortcutsData.categories.push(category);
+                }
+
+                category.shortcuts.push({ action, shortcut, info });
+            }
+
+            saveData();
+            renderCategories(document.getElementById('searchInput').value);
+            closeAddModal();
+        });
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>
+
