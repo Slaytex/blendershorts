@@ -20,12 +20,20 @@ A beautiful, interactive website for managing and referencing Blender keyboard s
 
 ## Usage
 
-### Viewing the Website
+### Local Development
 
-1. Simply open `index.html` in your web browser
-2. The website will automatically load `shortcuts.json`
-3. Use the search box to filter shortcuts
-4. Browse shortcuts by category
+1. Install dependencies: `npm install`
+2. Start the server: `npm start` (runs on http://localhost:3000)
+3. Open your browser and navigate to the server URL
+4. The website will automatically load shortcuts from the server
+
+### Static File Mode (No Server)
+
+If you just want to view the site without a server, you can open `index.html` directly in your browser. However, changes won't persist - they'll only be saved to browser localStorage.
+
+### Production Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions on deploying to an Ubuntu server.
 
 ### Adding a New Shortcut
 
@@ -56,6 +64,15 @@ A beautiful, interactive website for managing and referencing Blender keyboard s
 1. Click **"Download JSON"** button
 2. The updated `shortcuts.json` file will be downloaded
 3. Replace your existing `shortcuts.json` with the downloaded file
+
+## API Endpoints
+
+The server provides two REST API endpoints:
+
+- `GET /api/shortcuts` - Retrieve all shortcuts
+- `POST /api/shortcuts` - Save shortcuts (expects JSON body)
+
+The frontend automatically uses these endpoints when running with the server.
 
 ## JSON Structure
 
