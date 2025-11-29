@@ -521,40 +521,6 @@
             });
         }
 
-        // Form submission
-        document.getElementById('shortcutForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const categoryName = document.getElementById('categorySelect').value || 
-                                document.getElementById('newCategoryInput').value;
-            const action = document.getElementById('actionInput').value;
-            const shortcut = document.getElementById('shortcutInput').value;
-            const info = document.getElementById('infoInput').value;
-
-            if (!categoryName) {
-                alert('Please select or enter a category name');
-                return;
-            }
-
-            // Find or create category
-            let category = shortcutsData.categories.find(c => c.name === categoryName);
-            if (!category) {
-                category = { name: categoryName, shortcuts: [], notes: [] };
-                shortcutsData.categories.push(category);
-            }
-
-            // Add shortcut
-            category.shortcuts.push({
-                action: action,
-                shortcut: shortcut,
-                info: info
-            });
-
-            saveData();
-            renderCategories(document.getElementById('searchInput').value);
-            closeAddModal();
-        });
-
         // Edit shortcut
         function editShortcut(categoryName, index) {
             const category = shortcutsData.categories.find(c => c.name === categoryName);
