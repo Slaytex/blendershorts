@@ -190,6 +190,12 @@
                 // Add video if available
                 if (shortcut.video) {
                     const video = document.createElement('video');
+                    // Set both attributes and properties for maximum compatibility
+                    video.setAttribute('autoplay', '');
+                    video.setAttribute('loop', '');
+                    video.setAttribute('muted', '');
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('poster', 'img/loading.jpg');
                     video.autoplay = true;
                     video.loop = true;
                     video.muted = true;
@@ -203,20 +209,29 @@
                     video.style.borderRadius = '4px';
                     
                     const source = document.createElement('source');
+                    source.setAttribute('src', `videos/${shortcut.video}`);
+                    source.setAttribute('type', 'video/mp4');
                     source.src = `videos/${shortcut.video}`;
                     source.type = 'video/mp4';
                     video.appendChild(source);
                     
                     // Add error handling
                     video.addEventListener('error', (e) => {
-                        console.error('Video error:', shortcut.video, e);
+                        console.error('Video error:', shortcut.video, video.error, e);
                     });
                     
-                    // Try to play the video
+                    // Try to play the video after it loads
                     video.addEventListener('loadeddata', () => {
                         video.play().catch(err => {
-                            console.log('Autoplay prevented, user interaction required:', err);
+                            console.log('Autoplay prevented for', shortcut.video, ':', err.message);
                         });
+                    });
+                    
+                    // Also try to play when canplay is ready
+                    video.addEventListener('canplay', () => {
+                        if (video.paused) {
+                            video.play().catch(() => {});
+                        }
                     });
                     
                     itemLink.appendChild(video);
