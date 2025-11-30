@@ -1,0 +1,301 @@
+{
+  "categories": [
+    {
+      "name": "Selection & Navigation",
+      "shortcuts": [
+        {
+          "action": "Select all",
+          "shortcut": "A",
+          "info": ""
+        },
+        {
+          "action": "Deselect all",
+          "shortcut": "Alt+A",
+          "info": ""
+        },
+        {
+          "action": "Box select",
+          "shortcut": "B",
+          "info": ""
+        },
+        {
+          "action": "Circle select",
+          "shortcut": "C",
+          "info": ""
+        },
+        {
+          "action": "Back to normal select",
+          "shortcut": "W or Escape",
+          "info": ""
+        },
+        {
+          "action": "Unhide all",
+          "shortcut": "Alt+H",
+          "info": ""
+        },
+        {
+          "action": "Zoom to selected (Outliner)",
+          "shortcut": "Numpad .",
+          "info": ""
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Object Operations",
+      "shortcuts": [
+        {
+          "action": "Duplicate (independent copy)",
+          "shortcut": "Shift+D",
+          "info": ""
+        },
+        {
+          "action": "Duplicate (linked instance)",
+          "shortcut": "Alt+D",
+          "info": ""
+        },
+        {
+          "action": "Join objects",
+          "shortcut": "Ctrl+J",
+          "info": ""
+        },
+        {
+          "action": "Separate by loose parts",
+          "shortcut": "P → By Loose Parts (in Edit Mode)",
+          "info": ""
+        },
+        {
+          "action": "Set origin to geometry",
+          "shortcut": "Right-click → Set Origin → Origin to Geometry",
+          "info": ""
+        },
+        {
+          "action": "Mirror",
+          "shortcut": "Ctrl+M → X/Y/Z",
+          "info": ""
+        },
+        {
+          "action": "Apply transforms",
+          "shortcut": "Ctrl+A",
+          "info": ""
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Parenting",
+      "shortcuts": [
+        {
+          "action": "Parent to object",
+          "shortcut": "Select children, Shift+click parent, Ctrl+P → Object",
+          "info": ""
+        },
+        {
+          "action": "Clear parent",
+          "shortcut": "Alt+P",
+          "info": ""
+        }
+      ],
+      "notes": [
+        "\"Loop in parents\" error = circular reference. Clear parent first with Alt+P."
+      ]
+    },
+    {
+      "name": "Keyframing & Animation",
+      "shortcuts": [
+        {
+          "action": "Insert keyframe",
+          "shortcut": "I",
+          "info": ""
+        },
+        {
+          "action": "Keyframe specific value",
+          "shortcut": "Hover over value, press I",
+          "info": ""
+        }
+      ],
+      "notes": [
+        "Keyframe options:",
+        "- All Channels = location, rotation, scale",
+        "- Selected Channels = only what's selected in Dope Sheet",
+        "- In Active Group = specific channel group"
+      ]
+    },
+    {
+      "name": "3D Cursor & Pivot Point",
+      "shortcuts": [
+        {
+          "action": "Cursor to Selected",
+          "shortcut": "Shift+S → Cursor to Selected",
+          "info": ""
+        },
+        {
+          "action": "Selection to Cursor",
+          "shortcut": "Shift+S → Selection to Cursor",
+          "info": ""
+        },
+        {
+          "action": "Cursor to World Origin",
+          "shortcut": "Shift+S → Cursor to World Origin",
+          "info": ""
+        },
+        {
+          "action": "Change Pivot Point",
+          "shortcut": ". (period) → choose pivot",
+          "info": ""
+        }
+      ],
+      "notes": [
+        "For mirroring around center:",
+        "1. Shift+S → Cursor to World Origin",
+        "2. . (period) → 3D Cursor",
+        "3. Ctrl+M → X/Y/Z",
+        "",
+        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
+      ]
+    },
+    {
+      "name": "UV Mapping",
+      "shortcuts": [
+        {
+          "action": "Unwrap",
+          "shortcut": "U (in Edit Mode)",
+          "info": ""
+        },
+        {
+          "action": "Smart UV Project",
+          "shortcut": "U → Smart UV Project",
+          "info": ""
+        }
+      ],
+      "notes": [
+        "Important: Check UV Maps in Data Properties (green triangle). The \"active render\" camera icon must be checked, and make sure correct UV map is active (not \"automap\")."
+      ]
+    },
+    {
+      "name": "Instances",
+      "shortcuts": [],
+      "notes": [
+        "- **Alt+D** creates linked instance (shares mesh data)",
+        "- **Shift+D** creates independent copy",
+        "- To verify instance: check mesh name in Object Data Properties — number shows how many objects share it",
+        "- To make instance independent: Object → Relations → Make Single User → Object & Data",
+        "- Continue instance chain with **Alt+D** from any instance"
+      ]
+    },
+    {
+      "name": "Proportional Editing",
+      "shortcuts": [
+        {
+          "action": "Toggle on/off",
+          "shortcut": "O",
+          "info": ""
+        }
+      ],
+      "notes": [
+        "Warning: If everything moves when you move one object, proportional editing is ON. Press O to turn it off."
+      ]
+    },
+    {
+      "name": "Modifiers & Collections",
+      "shortcuts": [],
+      "notes": [
+        "Collection Instance:",
+        "- Add → Collection Instance → pick collection",
+        "- Or: Shift+A → Collection Instance",
+        "",
+        "Exclude from View Layer:",
+        "- Checkbox in Outliner — removes collection entirely from view layer",
+        "- Different from eye icon (hide) which is temporary",
+        "",
+        "Boolean Modifier:",
+        "- Used for wipe/reveal effects",
+        "- Intersect = only show overlapping geometry"
+      ]
+    },
+    {
+      "name": "Common Issues & Fixes",
+      "shortcuts": [
+        {
+          "action": "Circle around cursor",
+          "shortcut": "Circle Select is on. Press W to exit",
+          "info": "Problem"
+        },
+        {
+          "action": "Everything moves together",
+          "shortcut": "Proportional Editing is on. Press O",
+          "info": "Problem"
+        },
+        {
+          "action": "\"Active object is not a selected mesh\"",
+          "shortcut": "Shift+click the mesh last so it's active",
+          "info": "Problem"
+        },
+        {
+          "action": "Object greyed out in Outliner",
+          "shortcut": "Check parent, collection, or instancing",
+          "info": "Problem"
+        },
+        {
+          "action": "Instance texture not showing",
+          "shortcut": "Check UV map active render icon in Data Properties",
+          "info": "Problem"
+        },
+        {
+          "action": "Geometry nodes slowing scene",
+          "shortcut": "Disable in modifier panel (monitor icon)",
+          "info": "Problem"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Useful View Modes",
+      "shortcuts": [
+        {
+          "action": "Toggle Edit/Object mode",
+          "shortcut": "Tab",
+          "info": ""
+        },
+        {
+          "action": "Wireframe view",
+          "shortcut": "Z → Wireframe",
+          "info": ""
+        },
+        {
+          "action": "Solid view",
+          "shortcut": "Z → Solid",
+          "info": ""
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Tips",
+      "shortcuts": [
+        {
+          "action": "Repeat last action",
+          "shortcut": "Shift+R",
+          "info": ""
+        },
+        {
+          "action": "Fine control on values",
+          "shortcut": "Shift+drag",
+          "info": ""
+        },
+        {
+          "action": "Copy location between objects",
+          "shortcut": "Use 3D cursor method (Shift+S)",
+          "info": ""
+        },
+        {
+          "action": "Select all in collection's children",
+          "shortcut": "Select objects, Shift+L → Object Data",
+          "info": ""
+        }
+      ],
+      "notes": []
+    }
+  ]
+}
+

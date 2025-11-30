@@ -28,8 +28,8 @@ app.post('/api/shortcuts', async (req, res) => {
   try {
     const shortcutsData = req.body;
     
-    // Validate JSON structure
-    if (!shortcutsData.categories || !Array.isArray(shortcutsData.categories)) {
+    // Validate JSON structure (accept both old and new formats)
+    if (!shortcutsData.shortcuts && !shortcutsData.categories) {
       return res.status(400).json({ error: 'Invalid JSON structure' });
     }
 

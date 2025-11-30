@@ -1,744 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Blender Shortcuts</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blender Shortcuts Reference</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        header {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .controls {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 200px;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        .search-box:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
-        }
-
-        .btn-secondary {
-            background: #48bb78;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #38a169;
-        }
-
-        .btn-danger {
-            background: #f56565;
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background: #e53e3e;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-        }
-
-        .category-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .category-title {
-            font-size: 1.5em;
-            color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-
-        .shortcut-item {
-            margin-bottom: 15px;
-            padding: 12px;
-            background: #f7fafc;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .shortcut-action {
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 5px;
-        }
-
-        .shortcut-key {
-            color: #667eea;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95em;
-            background: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 5px;
-        }
-
-        .notes {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .notes ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .notes li {
-            padding: 5px 0;
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h2 {
-            color: #667eea;
-        }
-
-        .close {
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-size: 32px;
-        }
-
-        .close:hover {
-            color: #000;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .json-editor {
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            min-height: 400px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px;
-            color: #718096;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .btn-small {
-            padding: 6px 12px;
-            font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
-            .categories-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .controls {
-                flex-direction: column;
-            }
-
-            .search-box {
-                width: 100%;
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="screen.css" media="screen">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎬 Blender Shortcuts Reference</h1>
-            <p>Your quick reference guide to Blender keyboard shortcuts</p>
-            <a href="view.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: #48bb78; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">📖 View-Only Reference →</a>
-        </header>
-
-        <div class="controls">
-            <input type="text" id="searchInput" class="search-box" placeholder="Search shortcuts...">
-            <button class="btn btn-primary" onclick="openAddModal()">+ Add Shortcut</button>
-            <button class="btn btn-secondary" onclick="openJsonEditor()">Edit JSON</button>
-            <button class="btn btn-secondary" onclick="downloadJson()">Download Backup</button>
-        </div>
-
-        <div id="categoriesContainer" class="categories-grid"></div>
+    <div id="header">
+        <h1>Blender Shortcuts</h1>
+        <p>This website provides a selection of useful default shortcuts in <a href="https://www.blender.org/" target="_blank">Blender</a>. For the best user experience, a mouse with a <em class="important">wheel</em> and a keyboard with a <em class="important">numpad</em> are recommended.</p>
+        <p>Suggest changes to this website via <a href="https://github.com/Slaytex/blendershorts/" target="_blank">Github</a>.</p>
     </div>
 
-    <!-- Add/Edit Modal -->
-    <div id="addModal" class="modal">
+    <div class="main" id="mainContainer">
+        <!-- Items will be generated here by JavaScript -->
+    </div>
+
+    <div id="menu">
+        <button type="button" id="buttonMenu" class="hidden">&#9776;</button>
+        <button type="button" id="buttonContent" class="hidden">Collapse</button>
+        <div id="filter" class="hidden">
+            <button type="button" class="buttonTag active" data-index="0">All</button>
+            <button type="button" class="buttonTag" data-index="1">General</button>
+            <button type="button" class="buttonTag" data-index="2">Navigation</button>
+            <button type="button" class="buttonTag" data-index="3">Selection</button>
+            <button type="button" class="buttonTag" data-index="4">Modeling</button>
+            <button type="button" class="buttonTag" data-index="5">Beginner</button>
+            <button type="button" class="buttonTag" data-index="6">Wizard</button>
+        </div>
+    </div>
+
+    <div class="edit-controls">
+        <button id="btnAddShortcut">+ Add Shortcut</button>
+        <button id="btnEditMode">Edit Mode</button>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Add New Shortcut</h2>
-                <button class="close" onclick="closeAddModal()">&times;</button>
-            </div>
+            <h2 id="modalTitle">Add Shortcut</h2>
             <form id="shortcutForm">
-                <div class="form-group">
-                    <label for="categorySelect">Category:</label>
-                    <select id="categorySelect" required>
-                        <option value="">Select or create category...</option>
-                    </select>
-                    <input type="text" id="newCategoryInput" placeholder="Or enter new category name" style="margin-top: 10px; display: none;">
-                </div>
-                <div class="form-group">
-                    <label for="actionInput">Action:</label>
-                    <input type="text" id="actionInput" required placeholder="e.g., Select all">
-                </div>
-                <div class="form-group">
-                    <label for="shortcutInput">Shortcut:</label>
-                    <input type="text" id="shortcutInput" required placeholder="e.g., A">
-                </div>
-                <div class="form-group">
-                    <label for="infoInput">Additional Info (optional):</label>
-                    <textarea id="infoInput" placeholder="Any additional notes or context..."></textarea>
-                </div>
-                <div class="action-buttons">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-danger" onclick="closeAddModal()">Cancel</button>
-                </div>
+                <label>Title:</label>
+                <input type="text" id="inputTitle" required>
+                
+                <label>Shortcut:</label>
+                <input type="text" id="inputShortcut" required>
+                
+                <label>Content (one per line, use &lt;em class="shortcut"&gt; for keys):</label>
+                <textarea id="inputContent" rows="5" required></textarea>
+                
+                <label>Tags (comma-separated):</label>
+                <input type="text" id="inputTags" placeholder="1,2,3 (1=General, 2=Navigation, 3=Selection, 4=Modeling, 5=Beginner, 6=Wizard)">
+                
+                <button type="submit">Save</button>
+                <button type="button" onclick="closeEditModal()">Cancel</button>
             </form>
         </div>
     </div>
 
-    <!-- JSON Editor Modal -->
-    <div id="jsonModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Edit JSON</h2>
-                <button class="close" onclick="closeJsonEditor()">&times;</button>
-            </div>
-            <div class="form-group">
-                <label for="jsonEditor">JSON Content:</label>
-                <textarea id="jsonEditor" class="json-editor"></textarea>
-            </div>
-            <div class="action-buttons">
-                <button class="btn btn-primary" onclick="saveJson()">Save JSON</button>
-                <button class="btn btn-danger" onclick="closeJsonEditor()">Cancel</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        let shortcutsData = {};
+        const tagColors = ["rgba(8,8,8,0.5)", "rgba(204,130,115,0.4)", "rgba(226,170,125,0.4)", "rgba(240,207,142,0.4)", "rgba(246,237,206,0.4)", "rgba(168,200,166,0.4)", "rgba(108,141,138,0.4)", "rgba(100,80,88,0.4)"];
+        const tagNames = ["All", "General", "Navigation", "Selection", "Modeling", "Beginner", "Wizard"];
+        
+        let shortcutsData = { shortcuts: [] };
+        let editMode = false;
+        let editingIndex = -1;
 
-        // Load JSON data
+        const header = document.getElementById("header");
+        const filter = document.getElementById("filter");
+        const buttonMenu = document.getElementById("buttonMenu");
+        const buttonContent = document.getElementById("buttonContent");
+        const tagButtons = document.getElementsByClassName("buttonTag");
+        const mainContainer = document.getElementById("mainContainer");
+
+        let isMenu = false;
+        let isContent = false;
+        let highlighted = 0;
+
+        // Load data
         async function loadData() {
             try {
                 const response = await fetch('/api/shortcuts');
-                if (!response.ok) {
-                    throw new Error('Failed to load shortcuts');
+                if (!response.ok) throw new Error('Failed to load');
+                const data = await response.json();
+                
+                // Convert from old format if needed
+                if (data.categories) {
+                    shortcutsData = await convertOldFormat(data);
+                } else {
+                    shortcutsData = data;
                 }
-                shortcutsData = await response.json();
-                renderCategories();
+                
+                renderItems();
+                initializeUI();
             } catch (error) {
                 console.error('Error loading data:', error);
-                // Fallback to local file if API fails
+                // Try loading from local file
                 try {
-                    const response = await fetch('shortcuts.json');
+                    const response = await fetch('shortcuts-new.json');
                     shortcutsData = await response.json();
-                    renderCategories();
-                } catch (fallbackError) {
-                    alert('Error loading shortcuts. Make sure the server is running.');
+                    renderItems();
+                    initializeUI();
+                } catch (e) {
+                    console.error('Failed to load shortcuts:', e);
                 }
             }
         }
 
-        // Render categories
-        function renderCategories(filter = '') {
-            const container = document.getElementById('categoriesContainer');
-            const filterLower = filter.toLowerCase();
+        // Convert old format to new format
+        async function convertOldFormat(data) {
+            const newFormat = { shortcuts: [] };
+            const tagMap = {
+                'Selection & Navigation': [2, 3],
+                'Object Operations': [1],
+                'Parenting': [1],
+                'Keyframing & Animation': [1],
+                '3D Cursor & Pivot Point': [2],
+                'UV Mapping': [4],
+                'Instances': [1],
+                'Proportional Editing': [4],
+                'Modifiers & Collections': [1],
+                'Common Issues & Fixes': [1],
+                'Useful View Modes': [2],
+                'Tips': [1]
+            };
 
-            if (!shortcutsData.categories || shortcutsData.categories.length === 0) {
-                container.innerHTML = '<div class="empty-state">No shortcuts found. Add some shortcuts to get started!</div>';
+            data.categories.forEach(category => {
+                category.shortcuts.forEach(shortcut => {
+                    const content = [];
+                    if (shortcut.info && shortcut.info.trim()) {
+                        content.push(shortcut.info);
+                    }
+                    if (category.notes && category.notes.length > 0) {
+                        category.notes.forEach(note => {
+                            if (note.trim()) {
+                                content.push(note.replace(/^\*\*|\*\*$/g, '').replace(/\*\*/g, ''));
+                            }
+                        });
+                    }
+                    if (content.length === 0) {
+                        content.push(`Use <em class="shortcut">${shortcut.shortcut}</em> to ${shortcut.action.toLowerCase()}.`);
+                    }
+
+                    newFormat.shortcuts.push({
+                        id: generateId(shortcut.action),
+                        title: shortcut.action,
+                        shortcut: shortcut.shortcut,
+                        content: content,
+                        tags: tagMap[category.name] || [1]
+                    });
+                });
+            });
+
+            return newFormat;
+        }
+
+        function generateId(title) {
+            return title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '').replace(/^([a-z])/, m => m.toUpperCase());
+        }
+
+        function renderItems() {
+            mainContainer.innerHTML = '';
+            
+            shortcutsData.shortcuts.forEach((shortcut, index) => {
+                const item = document.createElement('div');
+                item.className = 'item';
+                item.id = shortcut.id;
+                
+                const itemLink = document.createElement('a');
+                itemLink.className = 'itemLink';
+                itemLink.href = `#${shortcut.id}`;
+                
+                const title = document.createElement('h3');
+                title.textContent = shortcut.title;
+                
+                const shortcutKey = document.createElement('h3');
+                const em = document.createElement('em');
+                em.className = 'shortcut';
+                em.textContent = shortcut.shortcut;
+                shortcutKey.appendChild(em);
+                
+                itemLink.appendChild(title);
+                itemLink.appendChild(shortcutKey);
+                
+                const content = document.createElement('div');
+                content.className = 'content hidden';
+                const ul = document.createElement('ul');
+                shortcut.content.forEach(line => {
+                    const li = document.createElement('li');
+                    const p = document.createElement('p');
+                    p.innerHTML = line;
+                    li.appendChild(p);
+                    ul.appendChild(li);
+                });
+                content.appendChild(ul);
+                
+                const tags = document.createElement('div');
+                tags.className = 'tags';
+                shortcut.tags.forEach(tagIndex => {
+                    const tag = document.createElement('div');
+                    tag.className = 'tag';
+                    tag.setAttribute('data-index', tagIndex);
+                    tag.textContent = tagNames[tagIndex];
+                    tags.appendChild(tag);
+                });
+                
+                const collapse = document.createElement('a');
+                collapse.className = 'itemCollapse';
+                
+                // Edit buttons (shown in edit mode)
+                const editButtons = document.createElement('div');
+                editButtons.className = 'edit-buttons';
+                const editBtn = document.createElement('button');
+                editBtn.textContent = 'Edit';
+                editBtn.onclick = () => openEditModal(index);
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.onclick = () => deleteShortcut(index);
+                editButtons.appendChild(editBtn);
+                editButtons.appendChild(deleteBtn);
+                
+                item.appendChild(itemLink);
+                item.appendChild(content);
+                item.appendChild(tags);
+                item.appendChild(collapse);
+                if (editMode) {
+                    item.classList.add('edit-item');
+                    item.appendChild(editButtons);
+                }
+                
+                itemLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    expandContent(index);
+                    highlight(index);
+                });
+                
+                collapse.addEventListener('click', () => {
+                    toggleContent(index);
+                });
+                
+                mainContainer.appendChild(item);
+            });
+        }
+
+        function initializeUI() {
+            buttonMenu.addEventListener('click', toggleMenu);
+            buttonContent.addEventListener('click', toggleAllContent);
+
+            for (let i = 0; i < tagButtons.length; i++) {
+                const index = tagButtons[i].dataset.index;
+                tagButtons[i].addEventListener('click', () => filterByTag(index));
+                tagButtons[i].style.backgroundColor = tagColors[i];
+            }
+
+            buttonMenu.classList.toggle('hidden');
+            readURLAnchor();
+        }
+
+        function toggleMenu() {
+            isMenu = !isMenu;
+            buttonContent.classList.toggle('hidden');
+            if (!isMenu) {
+                filter.classList.add('hidden');
+            } else {
+                filter.classList.remove('hidden');
+            }
+        }
+
+        function expandContent(index) {
+            const items = document.getElementsByClassName('item');
+            const contents = items[index].getElementsByClassName('content');
+            if (contents.length > 0) {
+                contents[0].classList.remove('hidden');
+            }
+        }
+
+        function toggleContent(index) {
+            const items = document.getElementsByClassName('item');
+            const contents = items[index].getElementsByClassName('content');
+            if (contents.length > 0) {
+                contents[0].classList.toggle('hidden');
+            }
+        }
+
+        function toggleAllContent() {
+            isContent = !isContent;
+            const contents = document.getElementsByClassName('content');
+            for (let i = 0; i < contents.length; i++) {
+                if (isContent) {
+                    contents[i].classList.add('hidden');
+                } else {
+                    contents[i].classList.remove('hidden');
+                }
+            }
+            header.classList.toggle('hidden');
+            buttonContent.innerHTML = isContent ? 'Expand' : 'Collapse';
+        }
+
+        function filterByTag(index) {
+            for (let i = 0; i < tagButtons.length; i++) {
+                tagButtons[i].classList.remove('active');
+            }
+
+            const tagCurrent = parseInt(index);
+            if (!tagButtons[tagCurrent]) {
+                console.log('Error! Tag ID does not exist!');
                 return;
             }
+            tagButtons[tagCurrent].classList.add('active');
 
-            container.innerHTML = '';
-
-            shortcutsData.categories.forEach(category => {
-                // Filter shortcuts
-                const filteredShortcuts = category.shortcuts.filter(shortcut => {
-                    return shortcut.action.toLowerCase().includes(filterLower) ||
-                           shortcut.shortcut.toLowerCase().includes(filterLower) ||
-                           (shortcut.info && shortcut.info.toLowerCase().includes(filterLower));
-                });
-
-                // Filter notes
-                const filteredNotes = category.notes.filter(note => 
-                    note.toLowerCase().includes(filterLower)
-                );
-
-                // Skip category if no matches
-                if (filteredShortcuts.length === 0 && filteredNotes.length === 0 && filter) {
-                    return;
+            const items = document.getElementsByClassName('item');
+            if (index != '0') {
+                for (let i = 0; i < items.length; i++) {
+                    const tags = items[i].getElementsByClassName('tag');
+                    let hasTag = false;
+                    for (let j = 0; j < tags.length; j++) {
+                        if (tags[j].dataset.index == index) {
+                            hasTag = true;
+                            break;
+                        }
+                    }
+                    if (hasTag) {
+                        items[i].classList.remove('hidden');
+                    } else {
+                        items[i].classList.add('hidden');
+                    }
                 }
-
-                const categoryCard = document.createElement('div');
-                categoryCard.className = 'category-card';
-
-                let html = `<div class="category-title">${category.name}</div>`;
-
-                // Render shortcuts
-                if (filteredShortcuts.length > 0) {
-                    filteredShortcuts.forEach(shortcut => {
-                        html += `
-                            <div class="shortcut-item">
-                                <div class="shortcut-action">${escapeHtml(shortcut.action)}</div>
-                                <div class="shortcut-key">${escapeHtml(shortcut.shortcut)}</div>
-                                ${shortcut.info ? `<div style="margin-top: 8px; color: #718096; font-size: 0.9em;">${escapeHtml(shortcut.info)}</div>` : ''}
-                                <div class="action-buttons">
-                                    <button class="btn btn-primary btn-small" onclick="editShortcut('${category.name}', ${category.shortcuts.indexOf(shortcut)})">Edit</button>
-                                    <button class="btn btn-danger btn-small" onclick="deleteShortcut('${category.name}', ${category.shortcuts.indexOf(shortcut)})">Delete</button>
-                                </div>
-                            </div>
-                        `;
-                    });
+            } else {
+                for (let i = 0; i < items.length; i++) {
+                    items[i].classList.remove('hidden');
                 }
-
-                // Render notes
-                if (filteredNotes.length > 0 && category.notes.length > 0) {
-                    html += '<div class="notes"><ul>';
-                    filteredNotes.forEach(note => {
-                        html += `<li>${escapeHtml(note)}</li>`;
-                    });
-                    html += '</ul></div>';
-                }
-
-                categoryCard.innerHTML = html;
-                container.appendChild(categoryCard);
-            });
-
-            if (container.innerHTML === '') {
-                container.innerHTML = '<div class="empty-state">No shortcuts match your search.</div>';
             }
         }
 
-        // Escape HTML to prevent XSS
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
+        function readURLAnchor() {
+            if (document.URL.split('#').length > 1) {
+                let anchor = document.URL.split('#')[1];
+                const items = document.getElementsByClassName('item');
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].id == anchor) {
+                        highlight(i);
+                        expandContent(i);
+                        return;
+                    }
+                }
+            }
         }
 
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            renderCategories(e.target.value);
+        function highlight(index) {
+            const items = document.getElementsByClassName('item');
+            const links = items[highlighted].getElementsByClassName('itemLink');
+            if (links.length > 0) {
+                links[0].classList.remove('highlight');
+            }
+            const newLinks = items[index].getElementsByClassName('itemLink');
+            if (newLinks.length > 0) {
+                newLinks[0].classList.add('highlight');
+            }
+            highlighted = index;
+        }
+
+        // Edit mode functions
+        document.getElementById('btnEditMode').addEventListener('click', () => {
+            editMode = !editMode;
+            document.getElementById('btnEditMode').textContent = editMode ? 'View Mode' : 'Edit Mode';
+            renderItems();
         });
 
-        // Modal functions
-        function openAddModal() {
-            populateCategorySelect();
-            document.getElementById('modalTitle').textContent = 'Add New Shortcut';
+        document.getElementById('btnAddShortcut').addEventListener('click', () => {
+            editingIndex = -1;
+            document.getElementById('modalTitle').textContent = 'Add Shortcut';
             document.getElementById('shortcutForm').reset();
-            document.getElementById('addModal').style.display = 'block';
-        }
+            document.getElementById('editModal').style.display = 'block';
+        });
 
-        function closeAddModal() {
-            document.getElementById('addModal').style.display = 'none';
-            document.getElementById('newCategoryInput').style.display = 'none';
-        }
-
-        function openJsonEditor() {
-            document.getElementById('jsonEditor').value = JSON.stringify(shortcutsData, null, 2);
-            document.getElementById('jsonModal').style.display = 'block';
-        }
-
-        function closeJsonEditor() {
-            document.getElementById('jsonModal').style.display = 'none';
-        }
-
-        function populateCategorySelect() {
-            const select = document.getElementById('categorySelect');
-            select.innerHTML = '<option value="">Select or create category...</option>';
-            
-            if (shortcutsData.categories) {
-                shortcutsData.categories.forEach(category => {
-                    const option = document.createElement('option');
-                    option.value = category.name;
-                    option.textContent = category.name;
-                    select.appendChild(option);
-                });
-            }
-
-            select.addEventListener('change', (e) => {
-                if (e.target.value === '') {
-                    document.getElementById('newCategoryInput').style.display = 'block';
-                } else {
-                    document.getElementById('newCategoryInput').style.display = 'none';
-                }
-            });
-        }
-
-        // Form submission
-        document.getElementById('shortcutForm').addEventListener('submit', (e) => {
+        document.getElementById('shortcutForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const categoryName = document.getElementById('categorySelect').value || 
-                                document.getElementById('newCategoryInput').value;
-            const action = document.getElementById('actionInput').value;
-            const shortcut = document.getElementById('shortcutInput').value;
-            const info = document.getElementById('infoInput').value;
+            const title = document.getElementById('inputTitle').value;
+            const shortcut = document.getElementById('inputShortcut').value;
+            const content = document.getElementById('inputContent').value.split('\n').filter(l => l.trim());
+            const tagsInput = document.getElementById('inputTags').value;
+            const tags = tagsInput ? tagsInput.split(',').map(t => parseInt(t.trim())).filter(t => !isNaN(t)) : [1];
 
-            if (!categoryName) {
-                alert('Please select or enter a category name');
-                return;
-            }
-
-            // Find or create category
-            let category = shortcutsData.categories.find(c => c.name === categoryName);
-            if (!category) {
-                category = { name: categoryName, shortcuts: [], notes: [] };
-                shortcutsData.categories.push(category);
-            }
-
-            // Add shortcut
-            category.shortcuts.push({
-                action: action,
+            const shortcutData = {
+                id: generateId(title),
+                title: title,
                 shortcut: shortcut,
-                info: info
-            });
+                content: content,
+                tags: tags
+            };
 
-            saveData();
-            renderCategories(document.getElementById('searchInput').value);
-            closeAddModal();
+            if (editingIndex >= 0) {
+                shortcutsData.shortcuts[editingIndex] = shortcutData;
+            } else {
+                shortcutsData.shortcuts.push(shortcutData);
+            }
+
+            await saveData();
+            renderItems();
+            closeEditModal();
         });
 
-        // Edit shortcut
-        function editShortcut(categoryName, index) {
-            const category = shortcutsData.categories.find(c => c.name === categoryName);
-            if (!category || !category.shortcuts[index]) return;
-
-            const shortcut = category.shortcuts[index];
-            
-            populateCategorySelect();
-            document.getElementById('categorySelect').value = categoryName;
-            document.getElementById('actionInput').value = shortcut.action;
-            document.getElementById('shortcutInput').value = shortcut.shortcut;
-            document.getElementById('infoInput').value = shortcut.info || '';
+        function openEditModal(index) {
+            editingIndex = index;
+            const shortcut = shortcutsData.shortcuts[index];
             document.getElementById('modalTitle').textContent = 'Edit Shortcut';
-
-            // Store edit context
-            document.getElementById('shortcutForm').dataset.editCategory = categoryName;
-            document.getElementById('shortcutForm').dataset.editIndex = index;
-
-            document.getElementById('addModal').style.display = 'block';
+            document.getElementById('inputTitle').value = shortcut.title;
+            document.getElementById('inputShortcut').value = shortcut.shortcut;
+            document.getElementById('inputContent').value = shortcut.content.join('\n');
+            document.getElementById('inputTags').value = shortcut.tags.join(',');
+            document.getElementById('editModal').style.display = 'block';
         }
 
-        // Delete shortcut
-        async function deleteShortcut(categoryName, index) {
-            if (!confirm('Are you sure you want to delete this shortcut?')) return;
+        function closeEditModal() {
+            document.getElementById('editModal').style.display = 'none';
+            editingIndex = -1;
+        }
 
-            const category = shortcutsData.categories.find(c => c.name === categoryName);
-            if (category && category.shortcuts[index]) {
-                category.shortcuts.splice(index, 1);
-                
-                // Remove category if empty
-                if (category.shortcuts.length === 0 && category.notes.length === 0) {
-                    shortcutsData.categories = shortcutsData.categories.filter(c => c.name !== categoryName);
-                }
-
+        async function deleteShortcut(index) {
+            if (confirm('Are you sure you want to delete this shortcut?')) {
+                shortcutsData.shortcuts.splice(index, 1);
                 await saveData();
-                renderCategories(document.getElementById('searchInput').value);
+                renderItems();
             }
         }
 
-        // Save JSON
-        async function saveJson() {
-            try {
-                const jsonText = document.getElementById('jsonEditor').value;
-                shortcutsData = JSON.parse(jsonText);
-                
-                const saved = await saveData();
-                if (saved) {
-                    renderCategories(document.getElementById('searchInput').value);
-                    closeJsonEditor();
-                    alert('JSON saved successfully!');
-                }
-            } catch (error) {
-                alert('Invalid JSON: ' + error.message);
-            }
-        }
-
-        // Save data to server
         async function saveData() {
             try {
                 const response = await fetch('/api/shortcuts', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(shortcutsData)
                 });
-
-                if (!response.ok) {
-                    throw new Error('Failed to save shortcuts');
-                }
-
-                const result = await response.json();
-                console.log('Shortcuts saved successfully');
-                return true;
+                if (!response.ok) throw new Error('Failed to save');
             } catch (error) {
                 console.error('Error saving data:', error);
-                // Fallback to localStorage
-                localStorage.setItem('blenderShortcuts', JSON.stringify(shortcutsData));
-                alert('Failed to save to server. Changes saved locally. Make sure the server is running.');
-                return false;
+                alert('Failed to save. Changes are only in memory.');
             }
         }
 
-        // Download JSON
-        function downloadJson() {
-            const dataStr = JSON.stringify(shortcutsData, null, 2);
-            const dataBlob = new Blob([dataStr], { type: 'application/json' });
-            const url = URL.createObjectURL(dataBlob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'shortcuts.json';
-            link.click();
-            URL.revokeObjectURL(url);
-        }
-
-        // Load from localStorage on startup (if available)
-        function loadFromStorage() {
-            const stored = localStorage.getItem('blenderShortcuts');
-            if (stored) {
-                try {
-                    shortcutsData = JSON.parse(stored);
-                    renderCategories();
-                } catch (e) {
-                    console.error('Error loading from storage:', e);
-                }
-            }
-        }
-
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            const addModal = document.getElementById('addModal');
-            const jsonModal = document.getElementById('jsonModal');
-            if (event.target === addModal) {
-                closeAddModal();
-            }
-            if (event.target === jsonModal) {
-                closeJsonEditor();
-            }
-        }
-
-        // Update form handler to support editing
-        const form = document.getElementById('shortcutForm');
-        const originalHandler = form.onsubmit;
-        form.onsubmit = null;
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const editCategory = form.dataset.editCategory;
-            const editIndex = form.dataset.editIndex;
-
-            if (editCategory !== undefined && editIndex !== undefined) {
-                // Editing existing shortcut
-                const category = shortcutsData.categories.find(c => c.name === editCategory);
-                if (category && category.shortcuts[editIndex]) {
-                    const categoryName = document.getElementById('categorySelect').value || 
-                                        document.getElementById('newCategoryInput').value;
-                    const action = document.getElementById('actionInput').value;
-                    const shortcut = document.getElementById('shortcutInput').value;
-                    const info = document.getElementById('infoInput').value;
-
-                    // If category changed, move shortcut
-                    if (categoryName !== editCategory) {
-                        category.shortcuts.splice(editIndex, 1);
-                        let newCategory = shortcutsData.categories.find(c => c.name === categoryName);
-                        if (!newCategory) {
-                            newCategory = { name: categoryName, shortcuts: [], notes: [] };
-                            shortcutsData.categories.push(newCategory);
-                        }
-                        newCategory.shortcuts.push({ action, shortcut, info });
-                    } else {
-                        category.shortcuts[editIndex] = { action, shortcut, info };
-                    }
-                }
-                delete form.dataset.editCategory;
-                delete form.dataset.editIndex;
-            } else {
-                // Adding new shortcut (existing handler)
-                const categoryName = document.getElementById('categorySelect').value || 
-                                    document.getElementById('newCategoryInput').value;
-                const action = document.getElementById('actionInput').value;
-                const shortcut = document.getElementById('shortcutInput').value;
-                const info = document.getElementById('infoInput').value;
-
-                if (!categoryName) {
-                    alert('Please select or enter a category name');
-                    return;
-                }
-
-                let category = shortcutsData.categories.find(c => c.name === categoryName);
-                if (!category) {
-                    category = { name: categoryName, shortcuts: [], notes: [] };
-                    shortcutsData.categories.push(category);
-                }
-
-                category.shortcuts.push({ action, shortcut, info });
-            }
-
-            await saveData();
-            renderCategories(document.getElementById('searchInput').value);
-            closeAddModal();
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
         });
 
-        // Initialize
-        loadData();
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('editModal');
+            if (event.target == modal) {
+                closeEditModal();
+            }
+        }
     </script>
 </body>
 </html>
