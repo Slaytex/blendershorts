@@ -83,6 +83,28 @@ p .shortcut {
     max-width: 640px;
 }
 
+#header #searchInput {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px 20px;
+    margin-top: 20px;
+    font-size: 100%;
+    background-color: rgb(24, 24, 24);
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 4px;
+    color: rgb(230, 230, 230);
+    font-family: inherit;
+}
+
+#header #searchInput:focus {
+    outline: none;
+    border-color: rgb(160, 160, 160);
+}
+
+#header #searchInput::placeholder {
+    color: rgb(140, 140, 140);
+}
+
 .main {
     display: grid;
     gap: 20px;

@@ -9,6 +9,7 @@
 <body>
     <div id="header">
         <h1>Blender Shortcuts</h1>
+        <input type="text" id="searchInput" placeholder="Search shortcuts..." autocomplete="off">
     </div>
 
     <div class="main" id="mainContainer">
@@ -75,10 +76,13 @@
         const buttonContent = document.getElementById("buttonContent");
         const tagButtons = document.getElementsByClassName("buttonTag");
         const mainContainer = document.getElementById("mainContainer");
+        const searchInput = document.getElementById("searchInput");
 
         let isMenu = false;
         let isContent = false;
         let highlighted = 0;
+        let currentSearchQuery = '';
+        let currentTagFilter = '0';
 
         // Load data
         async function loadData() {
@@ -303,10 +307,17 @@
         function initializeUI() {
             buttonMenu.addEventListener('click', toggleMenu);
             buttonContent.addEventListener('click', toggleAllContent);
+            searchInput.addEventListener('input', (e) => {
+                currentSearchQuery = e.target.value.toLowerCase();
+                applyFilters();
+            });
 
             for (let i = 0; i < tagButtons.length; i++) {
                 const index = tagButtons[i].dataset.index;
-                tagButtons[i].addEventListener('click', () => filterByTag(index));
+                tagButtons[i].addEventListener('click', () => {
+                    currentTagFilter = index;
+                    filterByTag(index);
+                });
                 tagButtons[i].style.backgroundColor = tagColors[i];
             }
 
@@ -366,27 +377,51 @@
                 return;
             }
             tagButtons[tagCurrent].classList.add('active');
+            currentTagFilter = index;
+            applyFilters();
+        }
 
+        function applyFilters() {
             const items = document.getElementsByClassName('item');
-            if (index != '0') {
-                for (let i = 0; i < items.length; i++) {
-                    const tags = items[i].getElementsByClassName('tag');
+            
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                let showItem = true;
+                
+                // Apply tag filter
+                if (currentTagFilter != '0') {
+                    const tags = item.getElementsByClassName('tag');
                     let hasTag = false;
                     for (let j = 0; j < tags.length; j++) {
-                        if (tags[j].dataset.index == index) {
+                        if (tags[j].dataset.index == currentTagFilter) {
                             hasTag = true;
                             break;
                         }
                     }
-                    if (hasTag) {
-                        items[i].classList.remove('hidden');
-                    } else {
-                        items[i].classList.add('hidden');
+                    if (!hasTag) {
+                        showItem = false;
                     }
                 }
-            } else {
-                for (let i = 0; i < items.length; i++) {
-                    items[i].classList.remove('hidden');
+                
+                // Apply search filter
+                if (showItem && currentSearchQuery) {
+                    const title = item.getElementsByTagName('h3')[0]?.textContent.toLowerCase() || '';
+                    const shortcut = item.getElementsByClassName('shortcut')[0]?.textContent.toLowerCase() || '';
+                    const content = item.getElementsByClassName('content')[0]?.textContent.toLowerCase() || '';
+                    
+                    const matchesSearch = title.includes(currentSearchQuery) || 
+                                        shortcut.includes(currentSearchQuery) || 
+                                        content.includes(currentSearchQuery);
+                    
+                    if (!matchesSearch) {
+                        showItem = false;
+                    }
+                }
+                
+                if (showItem) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
                 }
             }
         }
