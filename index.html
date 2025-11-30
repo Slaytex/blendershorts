@@ -190,15 +190,35 @@
                 // Add video if available
                 if (shortcut.video) {
                     const video = document.createElement('video');
-                    video.setAttribute('autoplay', '');
-                    video.setAttribute('loop', '');
-                    video.setAttribute('muted', '');
-                    video.setAttribute('playsinline', '');
-                    video.setAttribute('poster', 'img/loading.jpg');
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.muted = true;
+                    video.playsInline = true;
+                    video.poster = 'img/loading.jpg';
+                    video.style.width = '256px';
+                    video.style.position = 'relative';
+                    video.style.left = '50%';
+                    video.style.transform = 'translateX(-50%)';
+                    video.style.marginTop = '30px';
+                    video.style.borderRadius = '4px';
+                    
                     const source = document.createElement('source');
-                    source.setAttribute('src', `videos/${shortcut.video}`);
-                    source.setAttribute('type', 'video/mp4');
+                    source.src = `videos/${shortcut.video}`;
+                    source.type = 'video/mp4';
                     video.appendChild(source);
+                    
+                    // Add error handling
+                    video.addEventListener('error', (e) => {
+                        console.error('Video error:', shortcut.video, e);
+                    });
+                    
+                    // Try to play the video
+                    video.addEventListener('loadeddata', () => {
+                        video.play().catch(err => {
+                            console.log('Autoplay prevented, user interaction required:', err);
+                        });
+                    });
+                    
                     itemLink.appendChild(video);
                 }
                 
@@ -249,6 +269,10 @@
                 }
                 
                 itemLink.addEventListener('click', (e) => {
+                    // Don't prevent default on video clicks - let video controls work
+                    if (e.target.tagName === 'VIDEO' || e.target.closest('video')) {
+                        return;
+                    }
                     e.preventDefault();
                     expandContent(index);
                     highlight(index);
