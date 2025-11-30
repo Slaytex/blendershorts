@@ -1,22 +1,27 @@
 # Blender Shortcuts Reference Website
 
-A beautiful, interactive website for managing and referencing Blender keyboard shortcuts.
+A beautiful, interactive website for managing and referencing Blender keyboard shortcuts. Built with a dark theme and card-based layout inspired by [hollisbrown/blendershortcuts](https://github.com/hollisbrown/blendershortcuts).
 
 ## Features
 
-- 📋 **Display all shortcuts** organized by category
-- 🔍 **Search functionality** to quickly find shortcuts
-- ➕ **Add new shortcuts** through an intuitive interface
-- ✏️ **Edit existing shortcuts** inline
-- 🗑️ **Delete shortcuts** you no longer need
-- 📝 **Edit JSON directly** for advanced users
-- 💾 **Download updated JSON** file
+- 🎨 **Dark theme** with card-based layout matching the reference site
+- 🏷️ **Tag filtering** - Filter shortcuts by tags (General, Navigation, Selection, Modeling, Beginner, Wizard)
+- 📋 **Collapsible cards** - Click to expand/collapse shortcut details
+- ➕ **Add shortcuts** through an intuitive modal interface
+- ✏️ **Edit shortcuts** - Toggle edit mode to modify any shortcut
+- 🗑️ **Delete shortcuts** - Remove shortcuts you no longer need
+- 💾 **Auto-save** - Changes automatically save to the server
+- 🔍 **URL anchors** - Share direct links to specific shortcuts
 
 ## Files
 
-- `shortcuts.json` - The data file containing all shortcuts (editable)
-- `index.html` - The main website (single file, no dependencies)
+- `shortcuts.json` - The data file containing all shortcuts in the reference format
+- `index.html` - The main website with dark theme and card layout
+- `screen.css` - Styling matching the reference site
+- `server.js` - Node.js/Express server for API endpoints
+- `package.json` - Node.js dependencies
 - `shortcuts.md` - Original markdown file (reference)
+- `index-old.html` & `shortcuts-old.json` - Backup of previous format
 
 ## Usage
 
@@ -27,43 +32,45 @@ A beautiful, interactive website for managing and referencing Blender keyboard s
 3. Open your browser and navigate to the server URL
 4. The website will automatically load shortcuts from the server
 
-### Static File Mode (No Server)
-
-If you just want to view the site without a server, you can open `index.html` directly in your browser. However, changes won't persist - they'll only be saved to browser localStorage.
-
 ### Production Deployment
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions on deploying to an Ubuntu server.
 
 ### Adding a New Shortcut
 
-1. Click the **"+ Add Shortcut"** button
-2. Select an existing category or enter a new category name
-3. Fill in:
-   - **Action**: What the shortcut does (e.g., "Select all")
+1. Click the **"+ Add Shortcut"** button (bottom left)
+2. Fill in the form:
+   - **Title**: Name of the shortcut (e.g., "Select all")
    - **Shortcut**: The keyboard shortcut (e.g., "A")
-   - **Additional Info**: Optional notes or context
-4. Click **Save**
+   - **Content**: One description per line. Use `<em class="shortcut">Key</em>` to highlight keys
+   - **Tags**: Comma-separated tag numbers (1=General, 2=Navigation, 3=Selection, 4=Modeling, 5=Beginner, 6=Wizard)
+3. Click **Save**
 
 ### Editing a Shortcut
 
-1. Find the shortcut you want to edit
-2. Click the **"Edit"** button on that shortcut
-3. Modify the fields as needed
-4. Click **Save**
+1. Click **"Edit Mode"** button (bottom left) to enable editing
+2. Hover over any shortcut card to see Edit/Delete buttons
+3. Click **"Edit"** to modify the shortcut
+4. Make your changes and click **Save**
+5. Click **"View Mode"** to exit edit mode
 
-### Editing JSON Directly
+### Filtering Shortcuts
 
-1. Click **"Edit JSON"** button
-2. Modify the JSON structure directly
-3. Click **"Save JSON"** (validates before saving)
-4. The website will update automatically
+1. Click the **menu button** (☰) in the top right
+2. Select a tag to filter shortcuts:
+   - **All** - Show all shortcuts
+   - **General** - General purpose shortcuts
+   - **Navigation** - Viewport and navigation shortcuts
+   - **Selection** - Selection-related shortcuts
+   - **Modeling** - Modeling and mesh editing shortcuts
+   - **Beginner** - Essential shortcuts for beginners
+   - **Wizard** - Advanced power-user shortcuts
 
-### Downloading Updated JSON
+### Collapsing/Expanding Content
 
-1. Click **"Download JSON"** button
-2. The updated `shortcuts.json` file will be downloaded
-3. Replace your existing `shortcuts.json` with the downloaded file
+- Click on a shortcut card header to expand/collapse its details
+- Click **"Collapse"** button (top right) to collapse all shortcuts
+- Click **"Expand"** to show all shortcut details
 
 ## API Endpoints
 
@@ -76,40 +83,53 @@ The frontend automatically uses these endpoints when running with the server.
 
 ## JSON Structure
 
-The JSON file follows this structure:
+The JSON file follows this structure (matching the reference site format):
 
 ```json
 {
-  "categories": [
+  "shortcuts": [
     {
-      "name": "Category Name",
-      "shortcuts": [
-        {
-          "action": "Action description",
-          "shortcut": "Keyboard shortcut",
-          "info": "Optional additional info"
-        }
+      "id": "SelectAll",
+      "title": "Select all",
+      "shortcut": "A",
+      "content": [
+        "Use <em class=\"shortcut\">A</em> to select all objects.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">A</em> to deselect all."
       ],
-      "notes": [
-        "Optional notes about the category"
-      ]
+      "tags": [1, 3]
     }
   ]
 }
 ```
 
-## Local Storage
+### Tag Reference
 
-The website uses browser localStorage as a backup. If you make changes and don't download the JSON, your changes are saved locally in your browser. To persist changes across devices, download the JSON file.
+- `1` - General
+- `2` - Navigation
+- `3` - Selection
+- `4` - Modeling
+- `5` - Beginner
+- `6` - Wizard
+
+### Content Formatting
+
+In the `content` array, you can use HTML:
+- `<em class="shortcut">Key</em>` - Highlights keyboard shortcuts
+- `<em class="important">Term</em>` - Highlights important terms
+- Regular HTML tags for formatting
 
 ## Browser Compatibility
 
-Works in all modern browsers (Chrome, Firefox, Safari, Edge). No external dependencies required - it's a single HTML file!
+Works in all modern browsers (Chrome, Firefox, Safari, Edge). Requires a server for full functionality (editing/saving).
 
 ## Tips
 
-- Use the search box to quickly find shortcuts by action, shortcut key, or info
-- Categories are automatically created when you add shortcuts to a new category name
-- Empty categories are automatically removed when all shortcuts are deleted
-- The JSON editor validates your JSON before saving to prevent errors
+- Use tag filtering to quickly find shortcuts by category
+- Click on shortcut cards to expand and see detailed information
+- Enable edit mode to add, modify, or remove shortcuts
+- Changes are automatically saved to the server
+- Share direct links to shortcuts using URL anchors (e.g., `#SelectAll`)
 
+## Credits
+
+Design and structure inspired by [hollisbrown/blendershortcuts](https://github.com/hollisbrown/blendershortcuts).
