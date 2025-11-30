@@ -28,6 +28,7 @@
             <button type="button" class="buttonTag" data-index="4">Modeling</button>
             <button type="button" class="buttonTag" data-index="5">Beginner</button>
             <button type="button" class="buttonTag" data-index="6">Wizard</button>
+            <button type="button" class="buttonTag" data-index="7">Problems</button>
         </div>
     </div>
 
@@ -54,7 +55,7 @@
                 <input type="text" id="inputVideo" placeholder="Leave empty if no video">
                 
                 <label>Tags (comma-separated):</label>
-                <input type="text" id="inputTags" placeholder="1,2,3 (1=General, 2=Navigation, 3=Selection, 4=Modeling, 5=Beginner, 6=Wizard)">
+                <input type="text" id="inputTags" placeholder="1,2,3 (1=General, 2=Navigation, 3=Selection, 4=Modeling, 5=Beginner, 6=Wizard, 7=Problems)">
                 
                 <button type="submit">Save</button>
                 <button type="button" onclick="closeEditModal()">Cancel</button>
@@ -64,7 +65,7 @@
 
     <script>
         const tagColors = ["rgba(8,8,8,0.5)", "rgba(204,130,115,0.4)", "rgba(226,170,125,0.4)", "rgba(240,207,142,0.4)", "rgba(246,237,206,0.4)", "rgba(168,200,166,0.4)", "rgba(108,141,138,0.4)", "rgba(100,80,88,0.4)"];
-        const tagNames = ["All", "General", "Navigation", "Selection", "Modeling", "Beginner", "Wizard"];
+        const tagNames = ["All", "General", "Navigation", "Selection", "Modeling", "Beginner", "Wizard", "Problems"];
         
         let shortcutsData = { shortcuts: [] };
         let editMode = false;

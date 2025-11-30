@@ -8,7 +8,8 @@
         "Problem"
       ],
       "tags": [
-        1
+        1,
+        7
       ]
     },
     {
@@ -87,7 +88,7 @@
         "<em class=\"shortcut\">Num 1</em>, <em class=\"shortcut\">Num 3</em> & <em class=\"shortcut\">Num\r\n                                7</em>\r\n                            to view from <em class=\"important\">Front</em>, <em class=\"important\">Side</em> & <em\r\n                                class=\"important\">Top</em>.",
         "<em class=\"shortcut\">Num 9</em> to <em class=\"important\">Invert</em> the current view\r\n                            direction.",
         "<em class=\"shortcut\">Num 5</em> to toggle <em class=\"important\">Orthographic</em> view.",
-        "<em class=\"shortcut\">Num 2</em>, <em class=\"shortcut\">Num 4</em>, <em class=\"shortcut\">Num 6</em>, <em class=\"shortcut\">Num 8</em>\r\n                            to <em class=\"important\">Rotate</em> the view in 15° steps."
+        "<em class=\"shortcut\">Num 2</em>, <em class=\"shortcut\">Num 4</em>, <em class=\"shortcut\">Num 6</em>, <em class=\"shortcut\">Num 8</em>\r\n                            to <em class=\"important\">Rotate</em> the view in 15\u00b0 steps."
       ],
       "tags": [
         1,
@@ -170,13 +171,13 @@
     {
       "id": "ChangePivotPoint",
       "title": "Change Pivot Point",
-      "shortcut": ". (period) → choose pivot",
+      "shortcut": ". (period) \u2192 choose pivot",
       "content": [
         "For mirroring around center:",
-        "1. Shift+S → Cursor to World Origin",
-        "2. . (period) → 3D Cursor",
-        "3. Ctrl+M → X/Y/Z",
-        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
+        "1. Shift+S \u2192 Cursor to World Origin",
+        "2. . (period) \u2192 3D Cursor",
+        "3. Ctrl+M \u2192 X/Y/Z",
+        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S \u2192 Cursor to Selected."
       ],
       "tags": [
         2
@@ -219,7 +220,8 @@
         "Problem"
       ],
       "tags": [
-        1
+        1,
+        7
       ]
     },
     {
@@ -288,13 +290,13 @@
     {
       "id": "CursortoSelected",
       "title": "Cursor to Selected",
-      "shortcut": "Shift+S → Cursor to Selected",
+      "shortcut": "Shift+S \u2192 Cursor to Selected",
       "content": [
         "For mirroring around center:",
-        "1. Shift+S → Cursor to World Origin",
-        "2. . (period) → 3D Cursor",
-        "3. Ctrl+M → X/Y/Z",
-        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
+        "1. Shift+S \u2192 Cursor to World Origin",
+        "2. . (period) \u2192 3D Cursor",
+        "3. Ctrl+M \u2192 X/Y/Z",
+        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S \u2192 Cursor to Selected."
       ],
       "tags": [
         2
@@ -303,13 +305,13 @@
     {
       "id": "CursortoWorldOrigin",
       "title": "Cursor to World Origin",
-      "shortcut": "Shift+S → Cursor to World Origin",
+      "shortcut": "Shift+S \u2192 Cursor to World Origin",
       "content": [
         "For mirroring around center:",
-        "1. Shift+S → Cursor to World Origin",
-        "2. . (period) → 3D Cursor",
-        "3. Ctrl+M → X/Y/Z",
-        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
+        "1. Shift+S \u2192 Cursor to World Origin",
+        "2. . (period) \u2192 3D Cursor",
+        "3. Ctrl+M \u2192 X/Y/Z",
+        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S \u2192 Cursor to Selected."
       ],
       "tags": [
         2
@@ -398,7 +400,8 @@
         "Problem"
       ],
       "tags": [
-        1
+        1,
+        7
       ]
     },
     {
@@ -464,7 +467,8 @@
         "Problem"
       ],
       "tags": [
-        1
+        1,
+        7
       ]
     },
     {
@@ -532,7 +536,8 @@
         "Problem"
       ],
       "tags": [
-        1
+        1,
+        7
       ]
     },
     {
@@ -542,8 +547,8 @@
       "content": [
         "- Alt+D creates linked instance (shares mesh data)",
         "- Shift+D creates independent copy",
-        "- To verify instance: check mesh name in Object Data Properties — number shows how many objects share it",
-        "- To make instance independent: Object → Relations → Make Single User → Object & Data",
+        "- To verify instance: check mesh name in Object Data Properties \u2014 number shows how many objects share it",
+        "- To make instance independent: Object \u2192 Relations \u2192 Make Single User \u2192 Object & Data",
         "- Continue instance chain with Alt+D from any instance"
       ],
       "tags": [
@@ -606,9 +611,9 @@
     {
       "id": "Mirror",
       "title": "Mirror",
-      "shortcut": "Ctrl+M → X/Y/Z",
+      "shortcut": "Ctrl+M \u2192 X/Y/Z",
       "content": [
-        "Use <em class=\"shortcut\">Ctrl+M → X/Y/Z</em> to mirror."
+        "Use <em class=\"shortcut\">Ctrl+M \u2192 X/Y/Z</em> to mirror."
       ],
       "tags": [
         1
@@ -620,11 +625,11 @@
       "shortcut": "See notes",
       "content": [
         "Collection Instance:",
-        "- Add → Collection Instance → pick collection",
-        "- Or: Shift+A → Collection Instance",
+        "- Add \u2192 Collection Instance \u2192 pick collection",
+        "- Or: Shift+A \u2192 Collection Instance",
         "",
         "Exclude from View Layer:",
-        "- Checkbox in Outliner — removes collection entirely from view layer",
+        "- Checkbox in Outliner \u2014 removes collection entirely from view layer",
         "- Different from eye icon (hide) which is temporary",
         "",
         "Boolean Modifier:",
@@ -673,13 +678,14 @@
         "Problem"
       ],
       "tags": [
-        1
+        1,
+        7
       ]
     },
     {
       "id": "Parenttoobject",
       "title": "Parent to object",
-      "shortcut": "Select children, Shift+click parent, Ctrl+P → Object",
+      "shortcut": "Select children, Shift+click parent, Ctrl+P \u2192 Object",
       "content": [
         "\"Loop in parents\" error = circular reference. Clear parent first with Alt+P."
       ],
@@ -825,9 +831,9 @@
     {
       "id": "Selectallincollectionschildren",
       "title": "Select all in collection's children",
-      "shortcut": "Select objects, Shift+L → Object Data",
+      "shortcut": "Select objects, Shift+L \u2192 Object Data",
       "content": [
-        "Use <em class=\"shortcut\">Select objects, Shift+L → Object Data</em> to select all in collection's children."
+        "Use <em class=\"shortcut\">Select objects, Shift+L \u2192 Object Data</em> to select all in collection's children."
       ],
       "tags": [
         1
@@ -925,13 +931,13 @@
     {
       "id": "SelectiontoCursor",
       "title": "Selection to Cursor",
-      "shortcut": "Shift+S → Selection to Cursor",
+      "shortcut": "Shift+S \u2192 Selection to Cursor",
       "content": [
         "For mirroring around center:",
-        "1. Shift+S → Cursor to World Origin",
-        "2. . (period) → 3D Cursor",
-        "3. Ctrl+M → X/Y/Z",
-        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
+        "1. Shift+S \u2192 Cursor to World Origin",
+        "2. . (period) \u2192 3D Cursor",
+        "3. Ctrl+M \u2192 X/Y/Z",
+        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S \u2192 Cursor to Selected."
       ],
       "tags": [
         2
@@ -953,9 +959,9 @@
     {
       "id": "Separatebylooseparts",
       "title": "Separate by loose parts",
-      "shortcut": "P → By Loose Parts (in Edit Mode)",
+      "shortcut": "P \u2192 By Loose Parts (in Edit Mode)",
       "content": [
-        "Use <em class=\"shortcut\">P → By Loose Parts (in Edit Mode)</em> to separate by loose parts."
+        "Use <em class=\"shortcut\">P \u2192 By Loose Parts (in Edit Mode)</em> to separate by loose parts."
       ],
       "tags": [
         1
@@ -964,9 +970,9 @@
     {
       "id": "Setorigintogeometry",
       "title": "Set origin to geometry",
-      "shortcut": "Right-click → Set Origin → Origin to Geometry",
+      "shortcut": "Right-click \u2192 Set Origin \u2192 Origin to Geometry",
       "content": [
-        "Use <em class=\"shortcut\">Right-click → Set Origin → Origin to Geometry</em> to set origin to geometry."
+        "Use <em class=\"shortcut\">Right-click \u2192 Set Origin \u2192 Origin to Geometry</em> to set origin to geometry."
       ],
       "tags": [
         1
@@ -987,7 +993,7 @@
     {
       "id": "SmartUVProject",
       "title": "Smart UV Project",
-      "shortcut": "U → Smart UV Project",
+      "shortcut": "U \u2192 Smart UV Project",
       "content": [
         "Important: Check UV Maps in Data Properties (green triangle). The \"active render\" camera icon must be checked, and make sure correct UV map is active (not \"automap\")."
       ],
@@ -1025,9 +1031,9 @@
     {
       "id": "Solidview",
       "title": "Solid view",
-      "shortcut": "Z → Solid",
+      "shortcut": "Z \u2192 Solid",
       "content": [
-        "Use <em class=\"shortcut\">Z → Solid</em> to solid view."
+        "Use <em class=\"shortcut\">Z \u2192 Solid</em> to solid view."
       ],
       "tags": [
         2
@@ -1138,9 +1144,9 @@
     {
       "id": "Wireframeview",
       "title": "Wireframe view",
-      "shortcut": "Z → Wireframe",
+      "shortcut": "Z \u2192 Wireframe",
       "content": [
-        "Use <em class=\"shortcut\">Z → Wireframe</em> to wireframe view."
+        "Use <em class=\"shortcut\">Z \u2192 Wireframe</em> to wireframe view."
       ],
       "tags": [
         2
