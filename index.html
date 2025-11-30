@@ -238,7 +238,7 @@
                 }
                 
                 const content = document.createElement('div');
-                content.className = 'content hidden';
+                content.className = 'content';
                 const ul = document.createElement('ul');
                 shortcut.content.forEach(line => {
                     const li = document.createElement('li');
@@ -326,6 +326,7 @@
         }
 
         function expandContent(index) {
+            // Content is now always visible, but we keep this for compatibility
             const items = document.getElementsByClassName('item');
             const contents = items[index].getElementsByClassName('content');
             if (contents.length > 0) {
@@ -352,7 +353,7 @@
                 }
             }
             header.classList.toggle('hidden');
-            buttonContent.innerHTML = isContent ? 'Expand' : 'Collapse';
+            buttonContent.innerHTML = isContent ? 'Expand All' : 'Collapse All';
         }
 
         function filterByTag(index) {

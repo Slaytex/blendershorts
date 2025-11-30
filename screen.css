@@ -21,10 +21,14 @@ h3 {
     font-size: 130%;
     font-weight: normal;
     margin-top: 2px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 h3 em {
-    width: 256px;
+    max-width: 100%;
+    min-width: 0;
     padding-top: 4px;
     padding-bottom: 6px;
     padding-left: 15px;
@@ -34,7 +38,9 @@ h3 em {
     color: white;
     background-color: rgb(10, 10, 10);
     font-style: normal;
-    text-wrap: nowrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: inline-block;
 }
 
 p {
@@ -106,6 +112,9 @@ p .shortcut {
     border: 1px solid rgb(32, 32, 32);
     border-radius: 5px 5px 0px 0px;
     user-select: none;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
 }
 
 .itemLink:hover {
