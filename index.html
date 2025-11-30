@@ -50,6 +50,9 @@
                 <label>Content (one per line, use &lt;em class="shortcut"&gt; for keys):</label>
                 <textarea id="inputContent" rows="5" required></textarea>
                 
+                <label>Video filename (optional, e.g., "Add.mp4"):</label>
+                <input type="text" id="inputVideo" placeholder="Leave empty if no video">
+                
                 <label>Tags (comma-separated):</label>
                 <input type="text" id="inputTags" placeholder="1,2,3 (1=General, 2=Navigation, 3=Selection, 4=Modeling, 5=Beginner, 6=Wizard)">
                 
@@ -183,6 +186,21 @@
                 
                 itemLink.appendChild(title);
                 itemLink.appendChild(shortcutKey);
+                
+                // Add video if available
+                if (shortcut.video) {
+                    const video = document.createElement('video');
+                    video.setAttribute('autoplay', '');
+                    video.setAttribute('loop', '');
+                    video.setAttribute('muted', '');
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('poster', 'img/loading.jpg');
+                    const source = document.createElement('source');
+                    source.setAttribute('src', `videos/${shortcut.video}`);
+                    source.setAttribute('type', 'video/mp4');
+                    video.appendChild(source);
+                    itemLink.appendChild(video);
+                }
                 
                 const content = document.createElement('div');
                 content.className = 'content hidden';
@@ -381,6 +399,7 @@
             const title = document.getElementById('inputTitle').value;
             const shortcut = document.getElementById('inputShortcut').value;
             const content = document.getElementById('inputContent').value.split('\n').filter(l => l.trim());
+            const video = document.getElementById('inputVideo').value.trim() || null;
             const tagsInput = document.getElementById('inputTags').value;
             const tags = tagsInput ? tagsInput.split(',').map(t => parseInt(t.trim())).filter(t => !isNaN(t)) : [1];
 
@@ -389,7 +408,8 @@
                 title: title,
                 shortcut: shortcut,
                 content: content,
-                tags: tags
+                tags: tags,
+                video: video
             };
 
             if (editingIndex >= 0) {
@@ -410,6 +430,7 @@
             document.getElementById('inputTitle').value = shortcut.title;
             document.getElementById('inputShortcut').value = shortcut.shortcut;
             document.getElementById('inputContent').value = shortcut.content.join('\n');
+            document.getElementById('inputVideo').value = shortcut.video || '';
             document.getElementById('inputTags').value = shortcut.tags.join(',');
             document.getElementById('editModal').style.display = 'block';
         }

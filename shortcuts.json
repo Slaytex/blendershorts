@@ -1,11 +1,107 @@
 {
   "shortcuts": [
     {
-      "id": "Selectall",
-      "title": "Select all",
-      "shortcut": "A",
+      "id": "Activeobjectisnotaselectedmesh",
+      "title": "\"Active object is not a selected mesh\"",
+      "shortcut": "Shift+click the mesh last so it's active",
       "content": [
-        "Use <em class=\"shortcut\">A</em> to select all."
+        "Problem"
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "Add",
+      "title": "Add",
+      "shortcut": "Shift",
+      "content": [
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">A</em> adds new data.",
+        "Depending on the context, this can be a new object, a new mesh inside the active object or a\r\n                            new node."
+      ],
+      "tags": [
+        1,
+        5
+      ],
+      "video": "Add.mp4"
+    },
+    {
+      "id": "AddFace",
+      "title": "Add Face",
+      "shortcut": "F",
+      "content": [
+        "<em class=\"shortcut\">F</em> to add a new face to the mesh. Adds a loose edge if two separate\r\n                            vertices are selected.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">F</em> to fill Ngons with triangles.",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">F</em> to bring up all face options\r\n                            including \"Grid Fill\""
+      ],
+      "tags": [
+        4
+      ],
+      "video": "Fill.mp4"
+    },
+    {
+      "id": "AddToSelection",
+      "title": "Add to Selection",
+      "shortcut": "Shift",
+      "content": [
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">Left Mouse</em> on unselected to add\r\n                            to the selection.",
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">Left Mouse</em> on selected to remove\r\n                            from the selection."
+      ],
+      "tags": [
+        1,
+        3,
+        5
+      ],
+      "video": "SelectAdd.mp4"
+    },
+    {
+      "id": "Apply",
+      "title": "Apply",
+      "shortcut": "Ctrl",
+      "content": [
+        "Only in <em class=\"important\">Object Mode</em>",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">A</em> to apply changes to the\r\n                            transform.",
+        "Applies modifiers if hovered in the list."
+      ],
+      "tags": [
+        1
+      ],
+      "video": "Apply.mp4"
+    },
+    {
+      "id": "Applytransforms",
+      "title": "Apply transforms",
+      "shortcut": "Ctrl+A",
+      "content": [
+        "Use <em class=\"shortcut\">Ctrl+A</em> to apply transforms."
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "AxisView",
+      "title": "Axis View",
+      "shortcut": "Numpad 1 &ndash; 9",
+      "content": [
+        "<em class=\"shortcut\">Num 1</em>, <em class=\"shortcut\">Num 3</em> & <em class=\"shortcut\">Num\r\n                                7</em>\r\n                            to view from <em class=\"important\">Front</em>, <em class=\"important\">Side</em> & <em\r\n                                class=\"important\">Top</em>.",
+        "<em class=\"shortcut\">Num 9</em> to <em class=\"important\">Invert</em> the current view\r\n                            direction.",
+        "<em class=\"shortcut\">Num 5</em> to toggle <em class=\"important\">Orthographic</em> view.",
+        "<em class=\"shortcut\">Num 2</em>, <em class=\"shortcut\">Num 4</em>, <em class=\"shortcut\">Num 6</em>, <em class=\"shortcut\">Num 8</em>\r\n                            to <em class=\"important\">Rotate</em> the view in 15° steps."
+      ],
+      "tags": [
+        1,
+        2,
+        5
+      ],
+      "video": "SnapView.mp4"
+    },
+    {
+      "id": "Backtonormalselect",
+      "title": "Back to normal select",
+      "shortcut": "W or Escape",
+      "content": [
+        "Use <em class=\"shortcut\">W or Escape</em> to back to normal select."
       ],
       "tags": [
         2,
@@ -13,16 +109,22 @@
       ]
     },
     {
-      "id": "Deselectall",
-      "title": "Deselect all",
-      "shortcut": "Alt+A",
+      "id": "Bevel",
+      "title": "Bevel",
+      "shortcut": "Ctrl",
       "content": [
-        "Use <em class=\"shortcut\">Alt+A</em> to deselect all."
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">B</em> to bevel edges.",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">Shift</em> + <em\r\n                                class=\"shortcut\">B</em> to\r\n                            bevel vertices.",
+        "Roll the <em class=\"shortcut\">Mouse Wheel</em> to adjust the number of segments.",
+        "<em class=\"shortcut\">V</em> to toggle vertex bevel.",
+        "<em class=\"shortcut\">C</em> to toggle clamping.",
+        "<em class=\"shortcut\">P</em> to adjust the bevel profile."
       ],
       "tags": [
-        2,
-        3
-      ]
+        4,
+        5
+      ],
+      "video": "Bevel.mp4"
     },
     {
       "id": "Boxselect",
@@ -34,6 +136,90 @@
       "tags": [
         2,
         3
+      ]
+    },
+    {
+      "id": "CameraView",
+      "title": "Camera View",
+      "shortcut": "Numpad 0",
+      "content": [
+        "<em class=\"shortcut\">Numpad 0</em> to align the view with the scene camera.",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">Numpad 0</em> to align the view with\r\n                            the selected camera and make it the scene camera.",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">Numpad\r\n                                0</em> to align the scene camera with the current view."
+      ],
+      "tags": [
+        2
+      ],
+      "video": "CameraView.mp4"
+    },
+    {
+      "id": "ChangeMode",
+      "title": "Change Mode",
+      "shortcut": "Ctrl",
+      "content": [
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">Tab</em> to see all available\r\n                            modes.",
+        "<em class=\"shortcut\">Tab</em> to toggle Edit mode directly.",
+        "If the cursor is hovering a timeline, <em class=\"shortcut\">Ctrl</em> + <em\r\n                                class=\"shortcut\">Tab</em> to toggle graph view."
+      ],
+      "tags": [
+        1,
+        5
+      ],
+      "video": "ChangeMode.mp4"
+    },
+    {
+      "id": "ChangePivotPoint",
+      "title": "Change Pivot Point",
+      "shortcut": ". (period) → choose pivot",
+      "content": [
+        "For mirroring around center:",
+        "1. Shift+S → Cursor to World Origin",
+        "2. . (period) → 3D Cursor",
+        "3. Ctrl+M → X/Y/Z",
+        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
+      ],
+      "tags": [
+        2
+      ]
+    },
+    {
+      "id": "ChangeShading",
+      "title": "Change Shading",
+      "shortcut": "Z",
+      "content": [
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">Z</em> to toggle <em\r\n                                class=\"important\">Wireframe</em> and <em class=\"important\">X-ray\r\n                            </em>, to see and select through the mesh.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">Z</em> to only toggle <em\r\n                                class=\"important\">X-ray</em>."
+      ],
+      "tags": [
+        1
+      ],
+      "video": "ChangeShading.mp4"
+    },
+    {
+      "id": "ChangeView",
+      "title": "Change View",
+      "shortcut": "Middle Mouse",
+      "content": [
+        "Drag <em class=\"shortcut\">Middle Mouse</em> to\r\n                            <em class=\"important\">Rotate</em> the view. It rotates around an invisible <em\r\n                                class=\"important\">Point of Interest</em>.",
+        "Hold <em class=\"shortcut\">Shift</em> and drag to <em class=\"important\">Move</em> the point of\r\n                            interest.",
+        "Hold <em class=\"shortcut\">Ctrl</em> and drag or roll the <em class=\"shortcut\">Mouse\r\n                                Wheel</em> to <em class=\"important\">Zoom</em> in and out"
+      ],
+      "tags": [
+        1,
+        2,
+        5
+      ],
+      "video": "MouseView.mp4"
+    },
+    {
+      "id": "Circlearoundcursor",
+      "title": "Circle around cursor",
+      "shortcut": "Circle Select is on. Press W to exit",
+      "content": [
+        "Problem"
+      ],
+      "tags": [
+        1
       ]
     },
     {
@@ -49,130 +235,6 @@
       ]
     },
     {
-      "id": "Backtonormalselect",
-      "title": "Back to normal select",
-      "shortcut": "W or Escape",
-      "content": [
-        "Use <em class=\"shortcut\">W or Escape</em> to back to normal select."
-      ],
-      "tags": [
-        2,
-        3
-      ]
-    },
-    {
-      "id": "Unhideall",
-      "title": "Unhide all",
-      "shortcut": "Alt+H",
-      "content": [
-        "Use <em class=\"shortcut\">Alt+H</em> to unhide all."
-      ],
-      "tags": [
-        2,
-        3
-      ]
-    },
-    {
-      "id": "ZoomtoselectedOutliner",
-      "title": "Zoom to selected (Outliner)",
-      "shortcut": "Numpad .",
-      "content": [
-        "Use <em class=\"shortcut\">Numpad .</em> to zoom to selected (outliner)."
-      ],
-      "tags": [
-        2,
-        3
-      ]
-    },
-    {
-      "id": "Duplicateindependentcopy",
-      "title": "Duplicate (independent copy)",
-      "shortcut": "Shift+D",
-      "content": [
-        "Use <em class=\"shortcut\">Shift+D</em> to duplicate (independent copy)."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Duplicatelinkedinstance",
-      "title": "Duplicate (linked instance)",
-      "shortcut": "Alt+D",
-      "content": [
-        "Use <em class=\"shortcut\">Alt+D</em> to duplicate (linked instance)."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Joinobjects",
-      "title": "Join objects",
-      "shortcut": "Ctrl+J",
-      "content": [
-        "Use <em class=\"shortcut\">Ctrl+J</em> to join objects."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Separatebylooseparts",
-      "title": "Separate by loose parts",
-      "shortcut": "P → By Loose Parts (in Edit Mode)",
-      "content": [
-        "Use <em class=\"shortcut\">P → By Loose Parts (in Edit Mode)</em> to separate by loose parts."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Setorigintogeometry",
-      "title": "Set origin to geometry",
-      "shortcut": "Right-click → Set Origin → Origin to Geometry",
-      "content": [
-        "Use <em class=\"shortcut\">Right-click → Set Origin → Origin to Geometry</em> to set origin to geometry."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Mirror",
-      "title": "Mirror",
-      "shortcut": "Ctrl+M → X/Y/Z",
-      "content": [
-        "Use <em class=\"shortcut\">Ctrl+M → X/Y/Z</em> to mirror."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Applytransforms",
-      "title": "Apply transforms",
-      "shortcut": "Ctrl+A",
-      "content": [
-        "Use <em class=\"shortcut\">Ctrl+A</em> to apply transforms."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Parenttoobject",
-      "title": "Parent to object",
-      "shortcut": "Select children, Shift+click parent, Ctrl+P → Object",
-      "content": [
-        "\"Loop in parents\" error = circular reference. Clear parent first with Alt+P."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
       "id": "Clearparent",
       "title": "Clear parent",
       "shortcut": "Alt+P",
@@ -184,28 +246,40 @@
       ]
     },
     {
-      "id": "Insertkeyframe",
-      "title": "Insert keyframe",
-      "shortcut": "I",
+      "id": "ClearTransform",
+      "title": "Clear Transform",
+      "shortcut": "Alt",
       "content": [
-        "Keyframe options:",
-        "- All Channels = location, rotation, scale",
-        "- Selected Channels = only what's selected in Dope Sheet",
-        "- In Active Group = specific channel group"
+        "Only in <em class=\"important\">Object Mode</em>",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">G</em> to clear location.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">R</em> to clear rotation.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">S</em> to clear scale."
       ],
       "tags": [
         1
-      ]
+      ],
+      "video": "ClearTransform.mp4"
     },
     {
-      "id": "Keyframespecificvalue",
-      "title": "Keyframe specific value",
-      "shortcut": "Hover over value, press I",
+      "id": "ConnectPath",
+      "title": "Connect Path",
+      "shortcut": "J",
       "content": [
-        "Keyframe options:",
-        "- All Channels = location, rotation, scale",
-        "- Selected Channels = only what's selected in Dope Sheet",
-        "- In Active Group = specific channel group"
+        "<em class=\"shortcut\">J</em> to connect vertices in the order in which they were selected.",
+        "Cuts into faces and creates additional vertices when the path intersects with existing edges."
+      ],
+      "tags": [
+        4,
+        6
+      ],
+      "video": "ConnectPath.mp4"
+    },
+    {
+      "id": "Copylocationbetweenobjects",
+      "title": "Copy location between objects",
+      "shortcut": "Use 3D cursor method (Shift+S)",
+      "content": [
+        "Use <em class=\"shortcut\">Use 3D cursor method (Shift+S)</em> to copy location between objects."
       ],
       "tags": [
         1
@@ -215,21 +289,6 @@
       "id": "CursortoSelected",
       "title": "Cursor to Selected",
       "shortcut": "Shift+S → Cursor to Selected",
-      "content": [
-        "For mirroring around center:",
-        "1. Shift+S → Cursor to World Origin",
-        "2. . (period) → 3D Cursor",
-        "3. Ctrl+M → X/Y/Z",
-        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
-      ],
-      "tags": [
-        2
-      ]
-    },
-    {
-      "id": "SelectiontoCursor",
-      "title": "Selection to Cursor",
-      "shortcut": "Shift+S → Selection to Cursor",
       "content": [
         "For mirroring around center:",
         "1. Shift+S → Cursor to World Origin",
@@ -257,40 +316,223 @@
       ]
     },
     {
-      "id": "ChangePivotPoint",
-      "title": "Change Pivot Point",
-      "shortcut": ". (period) → choose pivot",
+      "id": "Delete",
+      "title": "Delete",
+      "shortcut": "X",
       "content": [
-        "For mirroring around center:",
-        "1. Shift+S → Cursor to World Origin",
-        "2. . (period) → 3D Cursor",
-        "3. Ctrl+M → X/Y/Z",
-        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
+        "Press <em class=\"shortcut\">X</em> in <em class=\"important\">Object Mode</em> to delete\r\n                            selected objects.",
+        "Press <em class=\"shortcut\">X</em> in <em class=\"important\">Edit Mode</em> to delete selected\r\n                            vertices, edges or faces."
       ],
       "tags": [
-        2
+        1,
+        5
+      ],
+      "video": "Delete.mp4"
+    },
+    {
+      "id": "Deselectall",
+      "title": "Deselect all",
+      "shortcut": "Alt+A",
+      "content": [
+        "Use <em class=\"shortcut\">Alt+A</em> to deselect all."
+      ],
+      "tags": [
+        2,
+        3
       ]
     },
     {
-      "id": "Unwrap",
-      "title": "Unwrap",
-      "shortcut": "U (in Edit Mode)",
+      "id": "Dissolve",
+      "title": "Dissolve",
+      "shortcut": "Ctrl",
       "content": [
-        "Important: Check UV Maps in Data Properties (green triangle). The \"active render\" camera icon must be checked, and make sure correct UV map is active (not \"automap\")."
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">X</em> to delete vertices but connect\r\n                            the surrounding edges. The result is based on the <em class=\"important\">selection mode</em>.",
+        "<em class=\"shortcut\">X</em><em class=\"important\"> > Limited Dissolve</em> dissolves all\r\n                            vertices/edges below a treshold angle."
       ],
       "tags": [
         4
+      ],
+      "video": "Dissolve.mp4"
+    },
+    {
+      "id": "Duplicate",
+      "title": "Duplicate",
+      "shortcut": "Shift",
+      "content": [
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">D</em> to duplicate the selection.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">D</em> in <em class=\"important\">Object\r\n                                Mode</em> to create <em class=\"important\">Linked Duplicates</em>, which\r\n                            reference the original data instead of copying it."
+      ],
+      "tags": [
+        1,
+        5
+      ],
+      "video": "Duplicate.mp4"
+    },
+    {
+      "id": "Duplicateindependentcopy",
+      "title": "Duplicate (independent copy)",
+      "shortcut": "Shift+D",
+      "content": [
+        "Use <em class=\"shortcut\">Shift+D</em> to duplicate (independent copy)."
+      ],
+      "tags": [
+        1
       ]
     },
     {
-      "id": "SmartUVProject",
-      "title": "Smart UV Project",
-      "shortcut": "U → Smart UV Project",
+      "id": "Duplicatelinkedinstance",
+      "title": "Duplicate (linked instance)",
+      "shortcut": "Alt+D",
       "content": [
-        "Important: Check UV Maps in Data Properties (green triangle). The \"active render\" camera icon must be checked, and make sure correct UV map is active (not \"automap\")."
+        "Use <em class=\"shortcut\">Alt+D</em> to duplicate (linked instance)."
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "Everythingmovestogether",
+      "title": "Everything moves together",
+      "shortcut": "Proportional Editing is on. Press O",
+      "content": [
+        "Problem"
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "Extrude",
+      "title": "Extrude",
+      "shortcut": "E",
+      "content": [
+        "<em class=\"shortcut\">E</em> to extrude a connected copy of the selected mesh and wait for\r\n                            input to be moved.",
+        "<em class=\"shortcut\">ESC</em> or <em class=\"shortcut\">Right click</em> to end the extrusion\r\n                            without moving it. Creates \"doubles\"!",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">E</em> for more options."
+      ],
+      "tags": [
+        4,
+        5
+      ],
+      "video": "Extrude.mp4"
+    },
+    {
+      "id": "ExtrudeToCursor",
+      "title": "Extrude to Cursor",
+      "shortcut": "Ctrl",
+      "content": [
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">Right Mouse</em> to extrude to the\r\n                            cursor position and adjust the rotation of the previous segment.",
+        "Extrusions will be placed at the depth of the 3D cursor."
+      ],
+      "tags": [
+        4,
+        6
+      ],
+      "video": "ExtrudeToCursor.mp4"
+    },
+    {
+      "id": "Finecontrolonvalues",
+      "title": "Fine control on values",
+      "shortcut": "Shift+drag",
+      "content": [
+        "Use <em class=\"shortcut\">Shift+drag</em> to fine control on values."
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "FrameSelected",
+      "title": "Frame Selected",
+      "shortcut": "Numpad .",
+      "content": [
+        "<em class=\"shortcut\">Numpad &#46;</em> to set the <em class=\"important\">Point of Interest</em> to the current\r\n                            selection.",
+        "<em class=\"shortcut\">Numpad &#8725;</em> to toggle <em class=\"important\">Local View</em> which also hides all but the selected object."
+      ],
+      "tags": [
+        1,
+        2,
+        5
+      ],
+      "video": "FrameSelected.mp4"
+    },
+    {
+      "id": "Geometrynodesslowingscene",
+      "title": "Geometry nodes slowing scene",
+      "shortcut": "Disable in modifier panel (monitor icon)",
+      "content": [
+        "Problem"
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "GranularInput",
+      "title": "Granular Input",
+      "shortcut": "Shift",
+      "content": [
+        "Hold <em class=\"shortcut\">Shift</em> to divide the mouse input for more precise control.",
+        "Works with <em class=\"important\">Move</em>, <em class=\"important\">Rotate</em> and <em\r\n                                class=\"important\">Scale</em> as well as <em class=\"important\">Sliders</em>"
+      ],
+      "tags": [
+        1
+      ],
+      "video": "Granular.mp4"
+    },
+    {
+      "id": "Hide",
+      "title": "Hide",
+      "shortcut": "H",
+      "content": [
+        "<em class=\"shortcut\">H</em> to hide the selection.",
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">H</em> to hide everything but the\r\n                            selection.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">H</em> to unhide all.",
+        "Meshes that are hidden in <em class=\"important\">Edit Mode</em> are visible in <em\r\n                                class=\"important\">Object Mode</em>."
+      ],
+      "tags": [
+        1
+      ],
+      "video": "Hide.mp4"
+    },
+    {
+      "id": "Insertkeyframe",
+      "title": "Insert keyframe",
+      "shortcut": "I",
+      "content": [
+        "Keyframe options:",
+        "- All Channels = location, rotation, scale",
+        "- Selected Channels = only what's selected in Dope Sheet",
+        "- In Active Group = specific channel group"
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "Inset",
+      "title": "Inset",
+      "shortcut": "I",
+      "content": [
+        "<em class=\"shortcut\">I</em> to inset around the selected faces.",
+        "Press <em class=\"shortcut\">I</em> again to inset individual faces.",
+        "Press <em class=\"shortcut\">O</em> to toggle outset.",
+        "Press <em class=\"shortcut\">B</em> to toggle boundary."
       ],
       "tags": [
         4
+      ],
+      "video": "Inset.mp4"
+    },
+    {
+      "id": "Instancetexturenotshowing",
+      "title": "Instance texture not showing",
+      "shortcut": "Check UV map active render icon in Data Properties",
+      "content": [
+        "Problem"
+      ],
+      "tags": [
+        1
       ]
     },
     {
@@ -309,14 +551,67 @@
       ]
     },
     {
-      "id": "Toggleonoff",
-      "title": "Toggle on/off",
-      "shortcut": "O",
+      "id": "Joinobjects",
+      "title": "Join objects",
+      "shortcut": "Ctrl+J",
       "content": [
-        "Warning: If everything moves when you move one object, proportional editing is ON. Press O to turn it off."
+        "Use <em class=\"shortcut\">Ctrl+J</em> to join objects."
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "Keyframespecificvalue",
+      "title": "Keyframe specific value",
+      "shortcut": "Hover over value, press I",
+      "content": [
+        "Keyframe options:",
+        "- All Channels = location, rotation, scale",
+        "- Selected Channels = only what's selected in Dope Sheet",
+        "- In Active Group = specific channel group"
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "LoopCut",
+      "title": "Loop Cut",
+      "shortcut": "Ctrl",
+      "content": [
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">R</em> to cut a loop if faces into\r\n                            segments.",
+        "Roll the <em class=\"shortcut\">Mouse Wheel</em> to change the number of segments.",
+        "Only works on multiple faces if they are four-sided (\"quads\")."
+      ],
+      "tags": [
+        4,
+        5
+      ],
+      "video": "LoopCut.mp4"
+    },
+    {
+      "id": "Merge",
+      "title": "Merge",
+      "shortcut": "M",
+      "content": [
+        "Merge all selected vertices at a specified location.",
+        "<em class=\"important\">Merge By Distance</em> to remove vertices that are closer than the\r\n                            threshold value, which you can set in the context menu."
       ],
       "tags": [
         4
+      ],
+      "video": "MergeCenter.mp4"
+    },
+    {
+      "id": "Mirror",
+      "title": "Mirror",
+      "shortcut": "Ctrl+M → X/Y/Z",
+      "content": [
+        "Use <em class=\"shortcut\">Ctrl+M → X/Y/Z</em> to mirror."
+      ],
+      "tags": [
+        1
       ]
     },
     {
@@ -341,37 +636,34 @@
       ]
     },
     {
-      "id": "Circlearoundcursor",
-      "title": "Circle around cursor",
-      "shortcut": "Circle Select is on. Press W to exit",
+      "id": "Move",
+      "title": "Move",
+      "shortcut": "G",
       "content": [
-        "Problem"
+        "Press <em class=\"shortcut red\">X</em>, <em class=\"shortcut green\">Y</em> or <em\r\n                                class=\"shortcut blue\">Z</em> to lock to\r\n                            an axis. Press twice to switch from global to local axes.",
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut red\">X</em>, <em\r\n                                class=\"shortcut green\">Y</em> or <em class=\"shortcut blue\">Z</em> to exclude an axis.",
+        "In <em class=\"important\">Edit Mode</em>, press <em class=\"shortcut\">G</em> twice to slide\r\n                            along existing edges."
       ],
       "tags": [
-        1
-      ]
+        1,
+        4,
+        5
+      ],
+      "video": "Move.mp4"
     },
     {
-      "id": "Everythingmovestogether",
-      "title": "Everything moves together",
-      "shortcut": "Proportional Editing is on. Press O",
+      "id": "MultiEdit",
+      "title": "Multi-Edit",
+      "shortcut": "Alt",
       "content": [
-        "Problem"
+        "If you have multiple objects selected, editing parameters will only affect the <em\r\n                                class=\"important\">active</em> object.",
+        "Hold <em class=\"shortcut\">Alt</em> to change the parameters of <em class=\"important\">all\r\n                                selected</em> objects instead."
       ],
       "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Activeobjectisnotaselectedmesh",
-      "title": "\"Active object is not a selected mesh\"",
-      "shortcut": "Shift+click the mesh last so it's active",
-      "content": [
-        "Problem"
+        1,
+        6
       ],
-      "tags": [
-        1
-      ]
+      "video": "MultiEdit.mp4"
     },
     {
       "id": "ObjectgreyedoutinOutliner",
@@ -385,26 +677,418 @@
       ]
     },
     {
-      "id": "Instancetexturenotshowing",
-      "title": "Instance texture not showing",
-      "shortcut": "Check UV map active render icon in Data Properties",
+      "id": "Parenttoobject",
+      "title": "Parent to object",
+      "shortcut": "Select children, Shift+click parent, Ctrl+P → Object",
       "content": [
-        "Problem"
+        "\"Loop in parents\" error = circular reference. Clear parent first with Alt+P."
       ],
       "tags": [
         1
       ]
     },
     {
-      "id": "Geometrynodesslowingscene",
-      "title": "Geometry nodes slowing scene",
-      "shortcut": "Disable in modifier panel (monitor icon)",
+      "id": "ProportionalEditing",
+      "title": "Proportional Editing",
+      "shortcut": "O",
       "content": [
-        "Problem"
+        "<em class=\"shortcut\">O</em> to toggle proportional editing.",
+        "Roll the <em class=\"shortcut\">Mouse Wheel</em> to change the radius.",
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">O</em> to change the falloff profile."
+      ],
+      "tags": [
+        4
+      ],
+      "video": "ProportionalEditing.mp4"
+    },
+    {
+      "id": "Rename",
+      "title": "Rename",
+      "shortcut": "F2",
+      "content": [
+        "<em class=\"shortcut\">F2</em> to rename the active object.",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">F2</em> to <em class=\"important\">Batch\r\n                                Rename</em> several objects at once."
+      ],
+      "tags": [
+        1
+      ],
+      "video": "Rename.mp4"
+    },
+    {
+      "id": "RepeatLast",
+      "title": "Repeat Last",
+      "shortcut": "Shift",
+      "content": [
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">R</em> to repeat the last action.",
+        "Repeats <em class=\"important\">Move</em>, <em class=\"important\">Rotate</em> and <em\r\n                                class=\"important\">Scale</em> relative to the result of the previous action."
+      ],
+      "tags": [
+        1,
+        6
+      ],
+      "video": "RepeatLast.mp4"
+    },
+    {
+      "id": "Repeatlastaction",
+      "title": "Repeat last action",
+      "shortcut": "Shift+R",
+      "content": [
+        "Use <em class=\"shortcut\">Shift+R</em> to repeat last action."
       ],
       "tags": [
         1
       ]
+    },
+    {
+      "id": "Rip",
+      "title": "Rip",
+      "shortcut": "V",
+      "content": [
+        "<em class=\"shortcut\">V</em> to rip vertices or edges.",
+        "The rip direction is determined by the cursor position."
+      ],
+      "tags": [
+        4
+      ],
+      "video": "Rip.mp4"
+    },
+    {
+      "id": "Rotate",
+      "title": "Rotate",
+      "shortcut": "R",
+      "content": [
+        "Press <em class=\"shortcut red\">X</em>, <em class=\"shortcut green\">Y</em> or <em\r\n                                class=\"shortcut blue\">Z</em> to lock to\r\n                            an axis. Press twice to switch from global to local axes.",
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut red\">X</em>, <em\r\n                                class=\"shortcut green\">Y</em> or <em class=\"shortcut blue\">Z</em> to exclude an axis.",
+        "Press <em class=\"shortcut\">R</em> twice to switch to gimbal mode."
+      ],
+      "tags": [
+        1,
+        4,
+        5
+      ],
+      "video": "Rotate.mp4"
+    },
+    {
+      "id": "Scale",
+      "title": "Scale",
+      "shortcut": "S",
+      "content": [
+        "Press <em class=\"shortcut red\">X</em>, <em class=\"shortcut green\">Y</em> or <em\r\n                                class=\"shortcut blue\">Z</em> to lock to\r\n                            an axis. Press twice to switch from global to local axes.",
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut red\">X</em>, <em\r\n                                class=\"shortcut green\">Y</em> or <em class=\"shortcut blue\">Z</em> to exclude an axis."
+      ],
+      "tags": [
+        1,
+        4,
+        5
+      ],
+      "video": "Scale.mp4"
+    },
+    {
+      "id": "Search",
+      "title": "Search",
+      "shortcut": "F3",
+      "content": [
+        "<em class=\"shortcut\">F3</em> to open operator search.",
+        "<em class=\"shortcut\">Arrow Up</em> and <em class=\"shortcut\">Arrow Down</em> to navigate, <em\r\n                                class=\"shortcut\">Enter</em> to select."
+      ],
+      "tags": [
+        1
+      ],
+      "video": "Search.mp4"
+    },
+    {
+      "id": "Selectall",
+      "title": "Select all",
+      "shortcut": "A",
+      "content": [
+        "Use <em class=\"shortcut\">A</em> to select all."
+      ],
+      "tags": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "SelectAll",
+      "title": "Select All",
+      "shortcut": "A",
+      "content": [
+        "<em class=\"shortcut\">A</em> to select all objects, meshes, keyframes etc. depending the\r\n                            context.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">A</em> to deselect all."
+      ],
+      "tags": [
+        1,
+        3
+      ],
+      "video": "SelectAll.mp4"
+    },
+    {
+      "id": "Selectallincollectionschildren",
+      "title": "Select all in collection's children",
+      "shortcut": "Select objects, Shift+L → Object Data",
+      "content": [
+        "Use <em class=\"shortcut\">Select objects, Shift+L → Object Data</em> to select all in collection's children."
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "SelectLinked",
+      "title": "Select Linked",
+      "shortcut": "L",
+      "content": [
+        "<em class=\"shortcut\">L</em> to select all linked vertices under the cursor.",
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">L</em> to\r\n                            remove all linked vertices from the selection",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">L</em> to select what is linked to the\r\n                            current selection."
+      ],
+      "tags": [
+        3,
+        6
+      ],
+      "video": "SelectLinked.mp4"
+    },
+    {
+      "id": "SelectLoop",
+      "title": "Select Loop",
+      "shortcut": "Alt",
+      "content": [
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">Left Mouse</em>\r\n                            while the cursor is close to a crossing edge.",
+        "<em class=\"shortcut\">Alt</em>+<em class=\"shortcut\">Shift</em>+<em class=\"shortcut\">Left\r\n                                Mouse</em> to add or remove loops from the selection.",
+        "Only works on multiple faces if they are four-sided (\"quads\")."
+      ],
+      "tags": [
+        3,
+        5
+      ],
+      "video": "SelectLoop.mp4"
+    },
+    {
+      "id": "SelectMoreLess",
+      "title": "Select More / Less",
+      "shortcut": "Ctrl",
+      "content": [
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">Num +</em> to select more.",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">Num -</em> to select less.",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">Num\r\n                                +</em> to select more elements with the same distance as the last two."
+      ],
+      "tags": [
+        3,
+        6
+      ],
+      "video": "SelectMoreLess.mp4"
+    },
+    {
+      "id": "SelectPathArea",
+      "title": "Select Path / Area",
+      "shortcut": "Ctrl",
+      "content": [
+        "<em class=\"shortcut\">Ctrl</em>+<em class=\"shortcut\">Left Mouse</em> to add the shortest path\r\n                            of vertices or faces to the selection.",
+        "<em class=\"shortcut\">Ctrl</em>+<em class=\"shortcut\">Shift</em>+<em class=\"shortcut\">Left\r\n                                Mouse</em> to add or remove an area."
+      ],
+      "tags": [
+        3,
+        6
+      ],
+      "video": "SelectPathArea.mp4"
+    },
+    {
+      "id": "SelectSimilar",
+      "title": "Select Similar",
+      "shortcut": "Shift",
+      "content": [
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">G</em> to select all with similar\r\n                            traits to the current selection.",
+        "Also works with objects or nodes selected (Select Grouped)"
+      ],
+      "tags": [
+        3,
+        6
+      ],
+      "video": "SelectSimilar.mp4"
+    },
+    {
+      "id": "SelectionModes",
+      "title": "Selection Modes",
+      "shortcut": "1",
+      "content": [
+        "<em class=\"shortcut\">1</em> for <em class=\"important\">vertex select.</em>",
+        "<em class=\"shortcut\">2</em> for <em class=\"important\">edge select.</em>",
+        "<em class=\"shortcut\">3</em> for <em class=\"important\">face select.</em>",
+        "Switching modes can change the selection!"
+      ],
+      "tags": [
+        3,
+        5
+      ],
+      "video": "SelectionModes.mp4"
+    },
+    {
+      "id": "SelectiontoCursor",
+      "title": "Selection to Cursor",
+      "shortcut": "Shift+S → Selection to Cursor",
+      "content": [
+        "For mirroring around center:",
+        "1. Shift+S → Cursor to World Origin",
+        "2. . (period) → 3D Cursor",
+        "3. Ctrl+M → X/Y/Z",
+        "Note: If \"Cursor to Selected\" puts cursor at origin, the object's origin is at (0,0,0) but geometry is elsewhere. Go into Edit Mode, select all (A), then Shift+S → Cursor to Selected."
+      ],
+      "tags": [
+        2
+      ]
+    },
+    {
+      "id": "Separate",
+      "title": "Separate",
+      "shortcut": "P",
+      "content": [
+        "<em class=\"shortcut\">P</em> to separate the selection into a new object.",
+        "The new object will have the same modifiers as the object it was separated from."
+      ],
+      "tags": [
+        4
+      ],
+      "video": "Separate.mp4"
+    },
+    {
+      "id": "Separatebylooseparts",
+      "title": "Separate by loose parts",
+      "shortcut": "P → By Loose Parts (in Edit Mode)",
+      "content": [
+        "Use <em class=\"shortcut\">P → By Loose Parts (in Edit Mode)</em> to separate by loose parts."
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "Setorigintogeometry",
+      "title": "Set origin to geometry",
+      "shortcut": "Right-click → Set Origin → Origin to Geometry",
+      "content": [
+        "Use <em class=\"shortcut\">Right-click → Set Origin → Origin to Geometry</em> to set origin to geometry."
+      ],
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": "ShrinkFatten",
+      "title": "Shrink/Fatten",
+      "shortcut": "Alt",
+      "content": [
+        "In <em class=\"important\">Edit Mode</em>, <em class=\"shortcut\">Alt</em> + <em\r\n                                class=\"shortcut\">S</em> to move vertices along their\r\n                            vertex normals."
+      ],
+      "tags": [
+        4
+      ],
+      "video": "FattenShrink.mp4"
+    },
+    {
+      "id": "SmartUVProject",
+      "title": "Smart UV Project",
+      "shortcut": "U → Smart UV Project",
+      "content": [
+        "Important: Check UV Maps in Data Properties (green triangle). The \"active render\" camera icon must be checked, and make sure correct UV map is active (not \"automap\")."
+      ],
+      "tags": [
+        4
+      ]
+    },
+    {
+      "id": "Snap",
+      "title": "Snap",
+      "shortcut": "Shift",
+      "content": [
+        "Move one thing precisely to another, especially useful to position the <em\r\n                                class=\"important\">3D Cursor</em>.",
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">Right Mouse</em> to set the 3D cursor\r\n                            by hand."
+      ],
+      "tags": [
+        1
+      ],
+      "video": "SnapCursor.mp4"
+    },
+    {
+      "id": "SnapToggle",
+      "title": "Snap (Toggle)",
+      "shortcut": "Ctrl",
+      "content": [
+        "Hold <em class=\"shortcut\">Ctrl</em> to enable snapping.",
+        "Works with <em class=\"important\">Move</em>, <em class=\"important\">Rotate</em> and <em\r\n                                class=\"important\">Scale</em> as well as <em class=\"important\">Sliders</em>",
+        "You can snap to increments (default) or geometry (vertices, edges, faces)."
+      ],
+      "tags": [
+        1
+      ],
+      "video": "SnapGrid.mp4"
+    },
+    {
+      "id": "Solidview",
+      "title": "Solid view",
+      "shortcut": "Z → Solid",
+      "content": [
+        "Use <em class=\"shortcut\">Z → Solid</em> to solid view."
+      ],
+      "tags": [
+        2
+      ]
+    },
+    {
+      "id": "Split",
+      "title": "Split",
+      "shortcut": "Y",
+      "content": [
+        "<em class=\"shortcut\">Y</em> to split the selection.",
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">M</em> to split all selected faces by their edges.",
+        "The selection is disconnected but still part of the same data block and object."
+      ],
+      "tags": [
+        4
+      ],
+      "video": "Split.mp4"
+    },
+    {
+      "id": "SubdivModifier",
+      "title": "Subdivision Surface",
+      "shortcut": "Ctrl",
+      "content": [
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">1, 2, 3</em> to add a subdivision\r\n                            surface modifier with corresponding levels.",
+        "<em class=\"shortcut\">Ctrl</em> + <em class=\"shortcut\">0</em> will disable the modifier (level\r\n                            0)."
+      ],
+      "tags": [
+        4,
+        6
+      ],
+      "video": "SubdivModifier.mp4"
+    },
+    {
+      "id": "SwitchObject",
+      "title": "Switch Object",
+      "shortcut": "Alt",
+      "content": [
+        "<em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">Q</em> to switch to the hovered object without changing modes.",
+        "Works with all modes, including <em class=\"important\">Pose Mode</em> on Armature objects."
+      ],
+      "tags": [
+        1,
+        3,
+        6
+      ],
+      "video": "SwitchObject.mp4"
+    },
+    {
+      "id": "ToSphere",
+      "title": "To Sphere",
+      "shortcut": "Shift",
+      "content": [
+        "<em class=\"shortcut\">Shift</em> + <em class=\"shortcut\">Alt</em> + <em class=\"shortcut\">S</em>\r\n                            moves selected vertices to approach a sphere with the <em class=\"important\">3D cursor</em> at the center.",
+        "Turns a single loop of vertices into a circle."
+      ],
+      "tags": [
+        4,
+        6
+      ],
+      "video": "ToSphere.mp4"
     },
     {
       "id": "ToggleEditObjectmode",
@@ -415,6 +1099,40 @@
       ],
       "tags": [
         2
+      ]
+    },
+    {
+      "id": "Toggleonoff",
+      "title": "Toggle on/off",
+      "shortcut": "O",
+      "content": [
+        "Warning: If everything moves when you move one object, proportional editing is ON. Press O to turn it off."
+      ],
+      "tags": [
+        4
+      ]
+    },
+    {
+      "id": "Unhideall",
+      "title": "Unhide all",
+      "shortcut": "Alt+H",
+      "content": [
+        "Use <em class=\"shortcut\">Alt+H</em> to unhide all."
+      ],
+      "tags": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "Unwrap",
+      "title": "Unwrap",
+      "shortcut": "U (in Edit Mode)",
+      "content": [
+        "Important: Check UV Maps in Data Properties (green triangle). The \"active render\" camera icon must be checked, and make sure correct UV map is active (not \"automap\")."
+      ],
+      "tags": [
+        4
       ]
     },
     {
@@ -429,58 +1147,15 @@
       ]
     },
     {
-      "id": "Solidview",
-      "title": "Solid view",
-      "shortcut": "Z → Solid",
+      "id": "ZoomtoselectedOutliner",
+      "title": "Zoom to selected (Outliner)",
+      "shortcut": "Numpad .",
       "content": [
-        "Use <em class=\"shortcut\">Z → Solid</em> to solid view."
+        "Use <em class=\"shortcut\">Numpad .</em> to zoom to selected (outliner)."
       ],
       "tags": [
-        2
-      ]
-    },
-    {
-      "id": "Repeatlastaction",
-      "title": "Repeat last action",
-      "shortcut": "Shift+R",
-      "content": [
-        "Use <em class=\"shortcut\">Shift+R</em> to repeat last action."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Finecontrolonvalues",
-      "title": "Fine control on values",
-      "shortcut": "Shift+drag",
-      "content": [
-        "Use <em class=\"shortcut\">Shift+drag</em> to fine control on values."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Copylocationbetweenobjects",
-      "title": "Copy location between objects",
-      "shortcut": "Use 3D cursor method (Shift+S)",
-      "content": [
-        "Use <em class=\"shortcut\">Use 3D cursor method (Shift+S)</em> to copy location between objects."
-      ],
-      "tags": [
-        1
-      ]
-    },
-    {
-      "id": "Selectallincollectionschildren",
-      "title": "Select all in collection's children",
-      "shortcut": "Select objects, Shift+L → Object Data",
-      "content": [
-        "Use <em class=\"shortcut\">Select objects, Shift+L → Object Data</em> to select all in collection's children."
-      ],
-      "tags": [
-        1
+        2,
+        3
       ]
     }
   ]
